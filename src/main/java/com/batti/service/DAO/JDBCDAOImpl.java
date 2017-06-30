@@ -124,6 +124,96 @@ public class JDBCDAOImpl implements BattiDAO {
         return addr;
     }
 
+    public ArrayList<String> retrieveNickNames() throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ArrayList<String> nknm = new ArrayList<String>();
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "SELECT nickname FROM customer_info";
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            //STEP 5: Extract data from result set
+            while(rs.next()){
+                String nickname = rs.getString("nickname");
+                //Retrieve by column name
+                nknm.add(nickname);
+            }
+            rs.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+            throw se;
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+            throw e;
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    conn.close();
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        return nknm;
+    }
+    public void signUp(String streetNumber,
+                       String unitNumber,
+                       String streetName,
+                       String streetType,
+                       String city,
+                       String state,
+                       String zipCode,
+                       String customerId,
+                       String nickname) throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        String address = combineAddress(streetNumber,
+                streetName,
+                streetType,
+                unitNumber,
+                city,
+                state,
+                zipCode);
+        try {
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "INSERT INTO customer_info (customer_id, nickname,street_number, street_name, street_type, unit_number, city, state, zip_code, combined_address) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, customerId);
+            stmt.setString(2, nickname);
+            stmt.setString(3, streetNumber);
+            stmt.setString(4, streetName);
+            stmt.setString(5, streetType);
+            stmt.setString(6, unitNumber);
+            stmt.setString(7, city);
+            stmt.setString(8, state);
+            stmt.setString(9, zipCode);
+            stmt.setString(10, address);
+            stmt.execute();
+        } catch (Exception e) {
+            LOG.error("fail signing up", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                LOG.error("fail for some reason during signing ups", se);
+            }
+        }//end try
+        System.out.println("successfully sign up" );
+    }
+
     public void changeCustomerStatus(String customerId) throws Exception{
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -157,4 +247,82 @@ public class JDBCDAOImpl implements BattiDAO {
         System.out.println("Goodbye!");
         System.out.println("successfully inserted order " + customerId);
     }
+
+    public ArrayList<String> checkAddress(String streetNumber,
+                                          String streetName,
+                                          String streetType,
+                                          String unitNumber,
+                                          String city,
+                                          String state,
+                                          String zipCode) throws Exception{
+
+        //return the CUSTOMER_IDs of the address if the address has appeared
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ArrayList<String> chk = new ArrayList<String>();
+        String address = combineAddress(streetNumber,
+                                        streetName,
+                                        streetType,
+                                        unitNumber,
+                                        city,
+                                        state,
+                                        zipCode);
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+            String sql = "SELECT customer_id FROM customer_info WHERE combined_address = ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, address);
+
+            ResultSet rs = stmt.executeQuery();
+            //STEP 5: Extract data from result set
+            while(rs.next()){
+                String customer_id = rs.getString("customer_id ");
+                //Retrieve by column name
+                chk.add(customer_id);
+            }
+            rs.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+            throw se;
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+            throw e;
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    conn.close();
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        return chk;
+    }
+
+    public String combineAddress(String streetNumber,
+                                 String streetName,
+                                 String streetType,
+                                 String unitNumber,
+                                 String city,
+                                 String state,
+                                 String zipCode){
+        return streetNumber + " " +
+                unitNumber + " " +
+                streetName + " " +
+                streetType + ", " +
+                city + ", " +
+                state + ", " +
+                zipCode;
+
+    }
+
 }

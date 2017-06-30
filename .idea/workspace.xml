@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b977b7fb-ec3e-4529-8362-783726a90955" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_4_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_base_2_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_jaxrs_jackson_jaxrs_json_provider_2_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_jaxb_annotations_2_4_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_34.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/BattiDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/model/Order.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/SignUpStatus.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/model/SignUpRequest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/batti-server.iml" afterPath="$PROJECT_DIR$/batti-server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,35 +17,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="batti-server" />
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6927374">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BattiService.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="BattiService.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+                <state relative-caret-position="264">
+                  <caret line="126" column="7" lean-forward="false" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -70,31 +36,34 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ResourceMethodInvocationHandlerFactory.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25/jersey-server-2.25.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
+          <file leaf-file-name="SignUpStatus.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/SignUpStatus.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
-                  <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+                <state relative-caret-position="150">
+                  <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+                  <folding>
+                    <element signature="e#222#223#0" expanded="true" />
+                    <element signature="e#258#259#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OrderStatus.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="165">
+                  <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="AbstractJavaResourceMethodDispatcher.class" pinned="false" current-in-tab="false">
-            <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25/jersey-server-2.25.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
+          <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/Order.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="106">
-                  <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ResultSet.java" pinned="false" current-in-tab="false">
-            <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/src.zip!/java/sql/ResultSet.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7440">
-                  <caret line="522" column="11" lean-forward="false" selection-start-line="522" selection-start-column="11" selection-end-line="522" selection-end-column="11" />
+                <state relative-caret-position="195">
+                  <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
                   <folding />
                 </state>
               </provider>
@@ -110,41 +79,37 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JDBCDAOImpl.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="JDBCDAOImpl.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="115">
-                  <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+                <state relative-caret-position="703">
+                  <caret line="245" column="18" lean-forward="true" selection-start-line="243" selection-start-column="38" selection-end-line="245" selection-end-column="18" />
                   <folding>
-                    <element signature="e#2588#2596#0" expanded="true" />
-                    <marker date="1498356954000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
-                    <marker date="1498356954000" expanded="false" signature="2130:2398" ph="..." />
-                    <marker date="1498356954000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
-                    <marker date="1498356954000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
-                    <marker date="1498356954000" expanded="true" signature="4230:4265" ph="UPDATE custo... " />
-                    <marker date="1498356954000" expanded="true" signature="4230:4287" ph="UPDATE custo... " />
-                    <marker date="1498356954000" expanded="true" signature="4230:4288" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
+                    <marker date="1498714187000" expanded="false" signature="2130:2398" ph="..." />
+                    <marker date="1498714187000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
+                    <marker date="1498714187000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
+                    <marker date="1498714187000" expanded="true" signature="4281:4315" ph="SELECT nickn... customer_info" />
+                    <marker date="1498714187000" expanded="true" signature="6152:6358" ph="INSERT INTO customer_info... " />
+                    <marker date="1498714187000" expanded="true" signature="7588:7623" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="7588:7645" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="7588:7646" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="9543:9587" ph="SELECT custo... customer_info" />
+                    <marker date="1498714187000" expanded="true" signature="9543:9607" ph="SELECT custo... customer_info" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
-            <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/src.zip!/java/lang/String.java">
+          <file leaf-file-name="PreparedStatement.java" pinned="false" current-in-tab="false">
+            <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="41475">
-                  <caret line="2843" column="4" lean-forward="false" selection-start-line="2843" selection-start-column="4" selection-end-line="2843" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="OrderStatus.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="3135">
+                  <caret line="235" column="9" lean-forward="false" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+                  <folding>
+                    <element signature="e#0#62780#0" expanded="false" />
+                    <element signature="imports" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -156,16 +121,20 @@
           <file leaf-file-name="JDBCDAOImpl.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="641">
-                  <caret line="126" column="22" lean-forward="false" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
+                <state relative-caret-position="1274">
+                  <caret line="241" column="33" lean-forward="true" selection-start-line="241" selection-start-column="33" selection-end-line="241" selection-end-column="33" />
                   <folding>
-                    <marker date="1498356954000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
-                    <marker date="1498356954000" expanded="false" signature="2130:2398" ph="..." />
-                    <marker date="1498356954000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
-                    <marker date="1498356954000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
-                    <marker date="1498356954000" expanded="true" signature="4230:4265" ph="UPDATE custo... " />
-                    <marker date="1498356954000" expanded="true" signature="4230:4287" ph="UPDATE custo... " />
-                    <marker date="1498356954000" expanded="true" signature="4230:4288" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
+                    <marker date="1498714187000" expanded="false" signature="2130:2398" ph="..." />
+                    <marker date="1498714187000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
+                    <marker date="1498714187000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
+                    <marker date="1498714187000" expanded="true" signature="4281:4315" ph="SELECT nickn... customer_info" />
+                    <marker date="1498714187000" expanded="true" signature="6152:6358" ph="INSERT INTO customer_info... " />
+                    <marker date="1498714187000" expanded="true" signature="7588:7623" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="7588:7645" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="7588:7646" ph="UPDATE custo... " />
+                    <marker date="1498714187000" expanded="true" signature="9543:9587" ph="SELECT custo... customer_info" />
+                    <marker date="1498714187000" expanded="true" signature="9543:9607" ph="SELECT custo... customer_info" />
                   </folding>
                 </state>
               </provider>
@@ -209,6 +178,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/BattiDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/model/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/model/CreateUserResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/model/ErrorCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/UserAuthService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/model/SignUpRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/SignUpStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" />
       </list>
@@ -230,7 +204,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="812" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -248,8 +222,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,10 +248,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -320,67 +289,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -416,7 +329,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -428,6 +342,9 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.batti.service.model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
     </key>
@@ -1025,16 +942,19 @@
       <workItem from="1497978125091" duration="12000" />
       <workItem from="1498196347704" duration="1931000" />
       <workItem from="1498323184965" duration="8174000" />
-      <workItem from="1498438475514" duration="2501000" />
+      <workItem from="1498438475514" duration="3077000" />
+      <workItem from="1498519795555" duration="2239000" />
+      <workItem from="1498624567576" duration="4039000" />
+      <workItem from="1498707368771" duration="4700000" />
+      <workItem from="1498791851285" duration="750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31539000" />
+    <option name="totallyTimeSpent" value="43843000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="807" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1048,7 +968,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45277777" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45277777" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1056,14 +976,14 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4486111" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2951049" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23175965" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23748212" sideWeight="0.48391607" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23462088" sideWeight="0.5160839" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1071,6 +991,42 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880434" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45277777" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44846797" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23748212" sideWeight="0.48391607" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880434" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23462088" sideWeight="0.5160839" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1080,7 +1036,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1089,78 +1045,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="80" column="49" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="49" />
-          <folding>
-            <element signature="e#2588#2596#0" expanded="true" />
-            <marker date="1498356954000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
-            <marker date="1498356954000" expanded="false" signature="2130:2398" ph="..." />
-            <marker date="1498356954000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
-            <marker date="1498356954000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
-            <marker date="1498356954000" expanded="true" signature="4230:4265" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4287" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4288" ph="UPDATE custo... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/src.zip!/java/sql/ResultSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7830">
-          <caret line="522" column="11" lean-forward="false" selection-start-line="522" selection-start-column="11" selection-end-line="522" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/BattiDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41475">
-          <caret line="2843" column="4" lean-forward="false" selection-start-line="2843" selection-start-column="4" selection-end-line="2843" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -1175,7 +1059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1183,7 +1066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,14 +1074,17 @@
         <state relative-caret-position="1005">
           <caret line="80" column="49" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="49" />
           <folding>
-            <element signature="e#2588#2596#0" expanded="true" />
-            <marker date="1498356954000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
-            <marker date="1498356954000" expanded="false" signature="2130:2398" ph="..." />
-            <marker date="1498356954000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
-            <marker date="1498356954000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
-            <marker date="1498356954000" expanded="true" signature="4230:4265" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4287" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4288" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
+            <marker date="1498714187000" expanded="false" signature="2130:2398" ph="..." />
+            <marker date="1498714187000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
+            <marker date="1498714187000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="4281:4315" ph="SELECT nickn... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="6152:6358" ph="INSERT INTO customer_info... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7623" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7645" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7646" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="9543:9587" ph="SELECT custo... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="9543:9607" ph="SELECT custo... customer_info" />
           </folding>
         </state>
       </provider>
@@ -1208,7 +1093,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7440">
           <caret line="522" column="11" lean-forward="false" selection-start-line="522" selection-start-column="11" selection-end-line="522" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="e#0#199967#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1231,7 +1119,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41475">
           <caret line="2843" column="4" lean-forward="false" selection-start-line="2843" selection-start-column="4" selection-end-line="2843" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#0#122381#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#14101#14102#0" expanded="false" />
+            <element signature="e#14153#14154#0" expanded="false" />
+            <element signature="e#19939#19940#0" expanded="false" />
+            <element signature="e#19992#19993#0" expanded="false" />
+            <element signature="e#21964#21965#0" expanded="false" />
+            <element signature="e#22008#22009#0" expanded="false" />
+            <element signature="e#23918#23919#0" expanded="false" />
+            <element signature="e#23946#23947#0" expanded="false" />
+            <element signature="e#24202#24203#0" expanded="false" />
+            <element signature="e#24235#24236#0" expanded="false" />
+            <element signature="e#30930#30931#0" expanded="false" />
+            <element signature="e#30999#31000#0" expanded="false" />
+            <element signature="e#37906#37907#0" expanded="false" />
+            <element signature="e#37970#37971#0" expanded="false" />
+            <element signature="e#48874#48875#0" expanded="false" />
+            <element signature="e#48938#48939#0" expanded="false" />
+            <element signature="e#57271#57272#0" expanded="false" />
+            <element signature="e#57315#57316#0" expanded="false" />
+            <element signature="e#57928#57929#0" expanded="false" />
+            <element signature="e#57991#57992#0" expanded="false" />
+            <element signature="e#60058#60059#0" expanded="false" />
+            <element signature="e#60095#60096#0" expanded="false" />
+            <element signature="e#64639#64640#0" expanded="false" />
+            <element signature="e#64688#64689#0" expanded="false" />
+            <element signature="e#68372#68373#0" expanded="false" />
+            <element signature="e#68410#68411#0" expanded="false" />
+            <element signature="e#71899#71900#0" expanded="false" />
+            <element signature="e#71945#71946#0" expanded="false" />
+            <element signature="e#75706#75707#0" expanded="false" />
+            <element signature="e#75757#75758#0" expanded="false" />
+            <element signature="e#78383#78384#0" expanded="false" />
+            <element signature="e#78442#78443#0" expanded="false" />
+            <element signature="e#82971#82972#0" expanded="false" />
+            <element signature="e#83022#83023#0" expanded="false" />
+            <element signature="e#83406#83407#0" expanded="false" />
+            <element signature="e#83455#83456#0" expanded="false" />
+            <element signature="e#94876#94877#0" expanded="false" />
+            <element signature="e#94914#94915#0" expanded="false" />
+            <element signature="e#102118#102119#0" expanded="false" />
+            <element signature="e#102173#102174#0" expanded="false" />
+            <element signature="e#108728#108729#0" expanded="false" />
+            <element signature="e#108783#108784#0" expanded="false" />
+            <element signature="e#110976#110977#0" expanded="false" />
+            <element signature="e#111003#111004#0" expanded="false" />
+            <element signature="e#115627#115628#0" expanded="false" />
+            <element signature="e#115689#115690#0" expanded="false" />
+            <element signature="e#116196#116197#0" expanded="false" />
+            <element signature="e#116235#116236#0" expanded="false" />
+            <element signature="e#117381#117382#0" expanded="false" />
+            <element signature="e#117435#117436#0" expanded="false" />
+            <element signature="e#118349#118350#0" expanded="false" />
+            <element signature="e#118405#118406#0" expanded="false" />
+            <element signature="e#118798#118799#0" expanded="false" />
+            <element signature="e#118841#118842#0" expanded="false" />
+            <element signature="e#119676#119677#0" expanded="false" />
+            <element signature="e#119718#119719#0" expanded="false" />
+            <element signature="e#120153#120154#0" expanded="false" />
+            <element signature="e#120192#120193#0" expanded="false" />
+            <element signature="e#120634#120635#0" expanded="false" />
+            <element signature="e#120674#120675#0" expanded="false" />
+            <element signature="e#121124#121125#0" expanded="false" />
+            <element signature="e#121165#121166#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1239,7 +1192,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#156#157#0" expanded="false" />
+            <element signature="e#185#186#0" expanded="false" />
+            <element signature="e#229#230#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1257,7 +1215,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1265,7 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1239,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7830">
           <caret line="522" column="11" lean-forward="false" selection-start-line="522" selection-start-column="11" selection-end-line="522" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="e#0#199967#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1306,7 +1265,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42645">
           <caret line="2843" column="4" lean-forward="false" selection-start-line="2843" selection-start-column="4" selection-end-line="2843" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#0#122381#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#14101#14102#0" expanded="false" />
+            <element signature="e#14153#14154#0" expanded="false" />
+            <element signature="e#19939#19940#0" expanded="false" />
+            <element signature="e#19992#19993#0" expanded="false" />
+            <element signature="e#21964#21965#0" expanded="false" />
+            <element signature="e#22008#22009#0" expanded="false" />
+            <element signature="e#23918#23919#0" expanded="false" />
+            <element signature="e#23946#23947#0" expanded="false" />
+            <element signature="e#24202#24203#0" expanded="false" />
+            <element signature="e#24235#24236#0" expanded="false" />
+            <element signature="e#30930#30931#0" expanded="false" />
+            <element signature="e#30999#31000#0" expanded="false" />
+            <element signature="e#37906#37907#0" expanded="false" />
+            <element signature="e#37970#37971#0" expanded="false" />
+            <element signature="e#48874#48875#0" expanded="false" />
+            <element signature="e#48938#48939#0" expanded="false" />
+            <element signature="e#57271#57272#0" expanded="false" />
+            <element signature="e#57315#57316#0" expanded="false" />
+            <element signature="e#57928#57929#0" expanded="false" />
+            <element signature="e#57991#57992#0" expanded="false" />
+            <element signature="e#60058#60059#0" expanded="false" />
+            <element signature="e#60095#60096#0" expanded="false" />
+            <element signature="e#64639#64640#0" expanded="false" />
+            <element signature="e#64688#64689#0" expanded="false" />
+            <element signature="e#68372#68373#0" expanded="false" />
+            <element signature="e#68410#68411#0" expanded="false" />
+            <element signature="e#71899#71900#0" expanded="false" />
+            <element signature="e#71945#71946#0" expanded="false" />
+            <element signature="e#75706#75707#0" expanded="false" />
+            <element signature="e#75757#75758#0" expanded="false" />
+            <element signature="e#78383#78384#0" expanded="false" />
+            <element signature="e#78442#78443#0" expanded="false" />
+            <element signature="e#82971#82972#0" expanded="false" />
+            <element signature="e#83022#83023#0" expanded="false" />
+            <element signature="e#83406#83407#0" expanded="false" />
+            <element signature="e#83455#83456#0" expanded="false" />
+            <element signature="e#94876#94877#0" expanded="false" />
+            <element signature="e#94914#94915#0" expanded="false" />
+            <element signature="e#102118#102119#0" expanded="false" />
+            <element signature="e#102173#102174#0" expanded="false" />
+            <element signature="e#108728#108729#0" expanded="false" />
+            <element signature="e#108783#108784#0" expanded="false" />
+            <element signature="e#110976#110977#0" expanded="false" />
+            <element signature="e#111003#111004#0" expanded="false" />
+            <element signature="e#115627#115628#0" expanded="false" />
+            <element signature="e#115689#115690#0" expanded="false" />
+            <element signature="e#116196#116197#0" expanded="false" />
+            <element signature="e#116235#116236#0" expanded="false" />
+            <element signature="e#117381#117382#0" expanded="false" />
+            <element signature="e#117435#117436#0" expanded="false" />
+            <element signature="e#118349#118350#0" expanded="false" />
+            <element signature="e#118405#118406#0" expanded="false" />
+            <element signature="e#118798#118799#0" expanded="false" />
+            <element signature="e#118841#118842#0" expanded="false" />
+            <element signature="e#119676#119677#0" expanded="false" />
+            <element signature="e#119718#119719#0" expanded="false" />
+            <element signature="e#120153#120154#0" expanded="false" />
+            <element signature="e#120192#120193#0" expanded="false" />
+            <element signature="e#120634#120635#0" expanded="false" />
+            <element signature="e#120674#120675#0" expanded="false" />
+            <element signature="e#121124#121125#0" expanded="false" />
+            <element signature="e#121165#121166#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1314,7 +1338,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#156#157#0" expanded="false" />
+            <element signature="e#185#186#0" expanded="false" />
+            <element signature="e#229#230#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1323,14 +1352,17 @@
         <state relative-caret-position="585">
           <caret line="52" column="42" lean-forward="false" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
           <folding>
-            <element signature="e#2588#2596#0" expanded="true" />
-            <marker date="1498356954000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
-            <marker date="1498356954000" expanded="false" signature="2130:2398" ph="..." />
-            <marker date="1498356954000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
-            <marker date="1498356954000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
-            <marker date="1498356954000" expanded="true" signature="4230:4265" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4287" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4288" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
+            <marker date="1498714187000" expanded="false" signature="2130:2398" ph="..." />
+            <marker date="1498714187000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
+            <marker date="1498714187000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="4281:4315" ph="SELECT nickn... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="6152:6358" ph="INSERT INTO customer_info... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7623" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7645" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7646" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="9543:9587" ph="SELECT custo... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="9543:9607" ph="SELECT custo... customer_info" />
           </folding>
         </state>
       </provider>
@@ -1339,7 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1347,7 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,7 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1373,7 +1402,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="e#156#157#0" expanded="false" />
+            <element signature="e#185#186#0" expanded="false" />
+            <element signature="e#229#230#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1381,7 +1415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1389,7 +1422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1397,7 +1429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1405,7 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1413,7 +1443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1421,7 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1430,7 +1458,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41475">
           <caret line="2843" column="4" lean-forward="false" selection-start-line="2843" selection-start-column="4" selection-end-line="2843" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="e#0#122381#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#14101#14102#0" expanded="false" />
+            <element signature="e#14153#14154#0" expanded="false" />
+            <element signature="e#19939#19940#0" expanded="false" />
+            <element signature="e#19992#19993#0" expanded="false" />
+            <element signature="e#21964#21965#0" expanded="false" />
+            <element signature="e#22008#22009#0" expanded="false" />
+            <element signature="e#23918#23919#0" expanded="false" />
+            <element signature="e#23946#23947#0" expanded="false" />
+            <element signature="e#24202#24203#0" expanded="false" />
+            <element signature="e#24235#24236#0" expanded="false" />
+            <element signature="e#30930#30931#0" expanded="false" />
+            <element signature="e#30999#31000#0" expanded="false" />
+            <element signature="e#37906#37907#0" expanded="false" />
+            <element signature="e#37970#37971#0" expanded="false" />
+            <element signature="e#48874#48875#0" expanded="false" />
+            <element signature="e#48938#48939#0" expanded="false" />
+            <element signature="e#57271#57272#0" expanded="false" />
+            <element signature="e#57315#57316#0" expanded="false" />
+            <element signature="e#57928#57929#0" expanded="false" />
+            <element signature="e#57991#57992#0" expanded="false" />
+            <element signature="e#60058#60059#0" expanded="false" />
+            <element signature="e#60095#60096#0" expanded="false" />
+            <element signature="e#64639#64640#0" expanded="false" />
+            <element signature="e#64688#64689#0" expanded="false" />
+            <element signature="e#68372#68373#0" expanded="false" />
+            <element signature="e#68410#68411#0" expanded="false" />
+            <element signature="e#71899#71900#0" expanded="false" />
+            <element signature="e#71945#71946#0" expanded="false" />
+            <element signature="e#75706#75707#0" expanded="false" />
+            <element signature="e#75757#75758#0" expanded="false" />
+            <element signature="e#78383#78384#0" expanded="false" />
+            <element signature="e#78442#78443#0" expanded="false" />
+            <element signature="e#82971#82972#0" expanded="false" />
+            <element signature="e#83022#83023#0" expanded="false" />
+            <element signature="e#83406#83407#0" expanded="false" />
+            <element signature="e#83455#83456#0" expanded="false" />
+            <element signature="e#94876#94877#0" expanded="false" />
+            <element signature="e#94914#94915#0" expanded="false" />
+            <element signature="e#102118#102119#0" expanded="false" />
+            <element signature="e#102173#102174#0" expanded="false" />
+            <element signature="e#108728#108729#0" expanded="false" />
+            <element signature="e#108783#108784#0" expanded="false" />
+            <element signature="e#110976#110977#0" expanded="false" />
+            <element signature="e#111003#111004#0" expanded="false" />
+            <element signature="e#115627#115628#0" expanded="false" />
+            <element signature="e#115689#115690#0" expanded="false" />
+            <element signature="e#116196#116197#0" expanded="false" />
+            <element signature="e#116235#116236#0" expanded="false" />
+            <element signature="e#117381#117382#0" expanded="false" />
+            <element signature="e#117435#117436#0" expanded="false" />
+            <element signature="e#118349#118350#0" expanded="false" />
+            <element signature="e#118405#118406#0" expanded="false" />
+            <element signature="e#118798#118799#0" expanded="false" />
+            <element signature="e#118841#118842#0" expanded="false" />
+            <element signature="e#119676#119677#0" expanded="false" />
+            <element signature="e#119718#119719#0" expanded="false" />
+            <element signature="e#120153#120154#0" expanded="false" />
+            <element signature="e#120192#120193#0" expanded="false" />
+            <element signature="e#120634#120635#0" expanded="false" />
+            <element signature="e#120674#120675#0" expanded="false" />
+            <element signature="e#121124#121125#0" expanded="false" />
+            <element signature="e#121165#121166#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1438,30 +1531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -1469,7 +1538,62 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7440">
           <caret line="522" column="11" lean-forward="false" selection-start-line="522" selection-start-column="11" selection-end-line="522" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="e#0#199967#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25/jersey-server-2.25.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25/jersey-server-2.25.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/CreateUserResponse.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/ErrorCode.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/UserAuthService.java" />
+    <entry file="file://$PROJECT_DIR$/batti-server.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/jre/lib/resources.jar!/com/sun/org/apache/xml/internal/security/resource/config.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/SignUpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1481,53 +1605,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/model/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="72" lean-forward="false" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25/jersey-server-2.25.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.25/jersey-server-2.25.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="3135">
+          <caret line="235" column="9" lean-forward="false" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#62780#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="127" column="0" lean-forward="false" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        <state relative-caret-position="703">
+          <caret line="245" column="18" lean-forward="true" selection-start-line="243" selection-start-column="38" selection-end-line="245" selection-end-column="18" />
           <folding>
-            <element signature="e#2588#2596#0" expanded="true" />
-            <marker date="1498356954000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
-            <marker date="1498356954000" expanded="false" signature="2130:2398" ph="..." />
-            <marker date="1498356954000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
-            <marker date="1498356954000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
-            <marker date="1498356954000" expanded="true" signature="4230:4265" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4287" ph="UPDATE custo... " />
-            <marker date="1498356954000" expanded="true" signature="4230:4288" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="1315:1424" ph="INSERT INTO user... " />
+            <marker date="1498714187000" expanded="false" signature="2130:2398" ph="..." />
+            <marker date="1498714187000" expanded="true" signature="2714:2754" ph="SELECT addre... customerStatus" />
+            <marker date="1498714187000" expanded="true" signature="2714:2759" ph="SELECT custo... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="4281:4315" ph="SELECT nickn... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="6152:6358" ph="INSERT INTO customer_info... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7623" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7645" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="7588:7646" ph="UPDATE custo... " />
+            <marker date="1498714187000" expanded="true" signature="9543:9587" ph="SELECT custo... customer_info" />
+            <marker date="1498714187000" expanded="true" signature="9543:9607" ph="SELECT custo... customer_info" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/SignUpStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#156#157#0" expanded="false" />
+            <element signature="e#185#186#0" expanded="false" />
+            <element signature="e#229#230#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="126" column="7" lean-forward="false" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

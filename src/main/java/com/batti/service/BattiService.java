@@ -72,7 +72,7 @@ public class BattiService {
     }
 
     public static String idGenerator(){
-        int i = (int)(Math.random()*10000000);
+        int i = (int)(Math.random()*1000000000);
         return i + "hello";
     }
 
@@ -92,4 +92,103 @@ public class BattiService {
         }
 
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/SignUp")
+    public SignUpStatus customerSignUp(@QueryParam("street_number") String streetNumber,
+                              @QueryParam("street_name") String streetName,
+                              @QueryParam("street_type") String streetType,
+                              @QueryParam("unit_number") String unitNumber,
+                              @QueryParam("city") String city,
+                              @QueryParam("state") String state,
+                              @QueryParam("zip_code") String zipCode,
+                              @QueryParam("nickname")String nickname){
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        SignUpStatus sus = new SignUpStatus();
+        try{
+            //fist check if address is duplicated
+            if(assessAddress(j, streetNumber, streetName, streetType, unitNumber, city, state, zipCode)){
+                //check if nickname is duplicated
+                if(assessNickname(j, nickname)){
+                    try{
+                        j.signUp(streetNumber, unitNumber,streetName, streetType, city, state, zipCode, idGenerator(), nickname);
+                        sus.setStatus("success");
+                    }catch (Exception e){
+                        System.out.println("exception thrown after checking address and nickname");
+                        e.printStackTrace();
+                        sus.setStatus("fail");
+                    }
+                }else{
+                    System.out.println("Nickname has been used.");
+                    sus.setStatus("fail");
+                }
+            }else{
+                System.out.println("Address has already been registered.");
+                sus.setStatus("fail");
+            }
+
+            return sus;
+        }catch(Exception e){
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            for(String m: msg){
+                System.out.println(m);
+            }
+        }
+        return new SignUpStatus();
+
+
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/nicknameList")
+    public ArrayList<String> listNicknames(){
+
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        try{
+            return j.retrieveNickNames();
+        }catch(Exception e){
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception in listNicknames" + e.getMessage());
+            return msg;
+        }
+
+    }
+
+    public boolean assessNickname(JDBCDAOImpl j, String nickName){
+        try {
+            ArrayList<String> nkms = j.retrieveNickNames();
+            if(nkms.contains(nickName)){
+                return false;
+            }
+            return true;
+        }catch(Exception ex){
+            System.out.println("False due to exception in assessNickName.");
+            return false;
+        }
+    }
+
+    public boolean assessAddress(JDBCDAOImpl j, String streetNumber,
+                                  String streetName,
+                                  String streetType,
+                                  String unitNumber,
+                                  String city,
+                                  String state,
+                                  String zipCode){
+        try {
+            ArrayList<String> chk = j.checkAddress(streetNumber, streetName, streetType, unitNumber, city, state, zipCode);
+            if(chk.size() > 0){
+                return false;
+            }
+            return true;
+        }catch(Exception ex){
+            System.out.println("False due to exception in assessAddress.");
+            return false;
+        }
+    }
+
 }
