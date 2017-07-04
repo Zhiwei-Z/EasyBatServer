@@ -3,16 +3,19 @@ package com.batti.service;
 import com.batti.service.DAO.BattiDAO;
 import com.batti.service.DAO.JDBCDAOImpl;
 import com.batti.service.model.Order;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.lang.reflect.Array;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by yonzhang on 6/15/17.
@@ -20,6 +23,8 @@ import java.util.List;
 @Path("/")
 public class BattiService {
     private static final Logger LOG = LoggerFactory.getLogger(BattiService.class);
+    private static final SecureRandom secureRandom = new SecureRandom();
+    private static final ObjectIdGenerators.UUIDGenerator generator = new ObjectIdGenerators.UUIDGenerator();
 
     public BattiService(){
 
@@ -34,7 +39,9 @@ public class BattiService {
         JDBCDAOImpl j = new JDBCDAOImpl();
         OrderStatus ost = new OrderStatus();
         try{
-            Order newOrder = new Order(idGenerator(), customer_id, 0);
+            UUID orderId = generator.generateId(secureRandom);
+
+            Order newOrder = new Order(orderId.toString(), customer_id, 0);
             if(assessRequest(j, customer_id)){
                 try{
                     j.createOrder(newOrder);
@@ -69,11 +76,6 @@ public class BattiService {
         }catch(Exception ex){
             return false;
         }
-    }
-
-    public static String idGenerator(){
-        int i = (int)(Math.random()*1000000000);
-        return i + "hello";
     }
 
     @GET
@@ -112,7 +114,8 @@ public class BattiService {
                 //check if nickname is duplicated
                 if(assessNickname(j, nickname)){
                     try{
-                        j.signUp(streetNumber, unitNumber,streetName, streetType, city, state, zipCode, idGenerator(), nickname);
+                        UUID customerId = generator.generateId(secureRandom);
+                        j.signUp(customerId.toString(), streetNumber, unitNumber,streetName, streetType, city, state, zipCode, nickname);
                         sus.setStatus("success");
                     }catch (Exception e){
                         System.out.println("exception thrown after checking address and nickname");

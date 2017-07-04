@@ -164,21 +164,21 @@ public class JDBCDAOImpl implements BattiDAO {
         }//end try
         return nknm;
     }
-    public void signUp(String streetNumber,
+    public void signUp(String customerId,
+                       String streetNumber,
                        String unitNumber,
                        String streetName,
                        String streetType,
                        String city,
                        String state,
                        String zipCode,
-                       String customerId,
                        String nickname) throws Exception{
         Connection conn = null;
         PreparedStatement stmt = null;
         String address = combineAddress(streetNumber,
+                unitNumber,
                 streetName,
                 streetType,
-                unitNumber,
                 city,
                 state,
                 zipCode);
@@ -261,9 +261,10 @@ public class JDBCDAOImpl implements BattiDAO {
         PreparedStatement stmt = null;
         ArrayList<String> chk = new ArrayList<String>();
         String address = combineAddress(streetNumber,
+                                        unitNumber,
                                         streetName,
                                         streetType,
-                                        unitNumber,
+
                                         city,
                                         state,
                                         zipCode);
@@ -309,9 +310,9 @@ public class JDBCDAOImpl implements BattiDAO {
     }
 
     public String combineAddress(String streetNumber,
+                                 String unitNumber,
                                  String streetName,
                                  String streetType,
-                                 String unitNumber,
                                  String city,
                                  String state,
                                  String zipCode){
