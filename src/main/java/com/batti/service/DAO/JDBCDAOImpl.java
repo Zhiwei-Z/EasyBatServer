@@ -248,33 +248,19 @@ public class JDBCDAOImpl implements BattiDAO {
         System.out.println("successfully inserted order " + customerId);
     }
 
-    public ArrayList<String> checkAddress(String streetNumber,
-                                          String streetName,
-                                          String streetType,
-                                          String unitNumber,
-                                          String city,
-                                          String state,
-                                          String zipCode) throws Exception{
+    public ArrayList<String> checkAddress(String combinedAddress) throws Exception{
 
         //return the CUSTOMER_IDs of the address if the address has appeared
         Connection conn = null;
         PreparedStatement stmt = null;
         ArrayList<String> chk = new ArrayList<String>();
-        String address = combineAddress(streetNumber,
-                                        unitNumber,
-                                        streetName,
-                                        streetType,
-
-                                        city,
-                                        state,
-                                        zipCode);
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
             String sql = "SELECT customer_id FROM customer_info WHERE combined_address = ?";
             stmt = conn.prepareStatement(sql);
 
-            stmt.setString(1, address);
+            stmt.setString(1, combinedAddress);
 
             ResultSet rs = stmt.executeQuery();
             //STEP 5: Extract data from result set

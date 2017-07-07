@@ -26,7 +26,7 @@ public class BattiService {
     private static final SecureRandom secureRandom = new SecureRandom();
     private static final ObjectIdGenerators.UUIDGenerator generator = new ObjectIdGenerators.UUIDGenerator();
 
-    public BattiService(){
+    public BattiService() {
 
     }
 
@@ -35,45 +35,45 @@ public class BattiService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/placeOrder")
 
-    public OrderStatus placeOrder(@QueryParam("customer_id") String customer_id){
+    public OrderStatus placeOrder(@QueryParam("customer_id") String customer_id) {
         JDBCDAOImpl j = new JDBCDAOImpl();
         OrderStatus ost = new OrderStatus();
-        try{
+        try {
             UUID orderId = generator.generateId(secureRandom);
 
             Order newOrder = new Order(orderId.toString(), customer_id, 0);
-            if(assessRequest(j, customer_id)){
-                try{
+            if (assessRequest(j, customer_id)) {
+                try {
                     j.createOrder(newOrder);
                     j.changeCustomerStatus(customer_id);
                     ost.setStatus("success");
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }else{
+            } else {
                 System.out.println("already ordered");
                 ost.setStatus("fail");
             }
             return ost;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
             msg.add("Exception thrown here" + e.getMessage());
-            for(String m: msg){
+            for (String m : msg) {
                 System.out.println(m);
             }
         }
         return new OrderStatus();
     }
 
-    public boolean assessRequest(JDBCDAOImpl j, String customer_id){
+    public boolean assessRequest(JDBCDAOImpl j, String customer_id) {
         try {
             ArrayList<String> addrs = j.retrieveCustomerId();
-            if(addrs.contains(customer_id)){
+            if (addrs.contains(customer_id)) {
                 return false;
             }
             return true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return false;
         }
     }
@@ -81,12 +81,12 @@ public class BattiService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/orderList")
-    public ArrayList<String> listOrders(){
+    public ArrayList<String> listOrders() {
 
         JDBCDAOImpl j = new JDBCDAOImpl();
-        try{
+        try {
             return j.retrieveCustomerId();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
             msg.add("Exception thrown here" + e.getMessage());
@@ -99,44 +99,45 @@ public class BattiService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/SignUp")
     public SignUpStatus customerSignUp(@QueryParam("street_number") String streetNumber,
-                              @QueryParam("street_name") String streetName,
-                              @QueryParam("street_type") String streetType,
-                              @QueryParam("unit_number") String unitNumber,
-                              @QueryParam("city") String city,
-                              @QueryParam("state") String state,
-                              @QueryParam("zip_code") String zipCode,
-                              @QueryParam("nickname")String nickname){
+                                       @QueryParam("street_name") String streetName,
+                                       @QueryParam("street_type") String streetType,
+                                       @QueryParam("unit_number") String unitNumber,
+                                       @QueryParam("city") String city,
+                                       @QueryParam("state") String state,
+                                       @QueryParam("zip_code") String zipCode,
+                                       @QueryParam("nickname") String nickname) {
         JDBCDAOImpl j = new JDBCDAOImpl();
         SignUpStatus sus = new SignUpStatus();
-        try{
+        try {
             //fist check if address is duplicated
-            if(assessAddress(j, streetNumber, streetName, streetType, unitNumber, city, state, zipCode)){
+            String combinedAddress = j.combineAddress(streetNumber, streetName, streetType, unitNumber, city, state, zipCode);
+            if (assessAddress(j, combinedAddress)) {
                 //check if nickname is duplicated
-                if(assessNickname(j, nickname)){
-                    try{
+                if (assessNickname(j, nickname)) {
+                    try {
                         UUID customerId = generator.generateId(secureRandom);
-                        j.signUp(customerId.toString(), streetNumber, unitNumber,streetName, streetType, city, state, zipCode, nickname);
+                        j.signUp(customerId.toString(), streetNumber, unitNumber, streetName, streetType, city, state, zipCode, nickname);
                         sus.setStatus("success");
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         System.out.println("exception thrown after checking address and nickname");
                         e.printStackTrace();
                         sus.setStatus("fail");
                     }
-                }else{
+                } else {
                     System.out.println("Nickname has been used.");
                     sus.setStatus("fail");
                 }
-            }else{
+            } else {
                 System.out.println("Address has already been registered.");
                 sus.setStatus("fail");
             }
 
             return sus;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
             msg.add("Exception thrown here in customerSignUp" + e.getMessage());
-            for(String m: msg){
+            for (String m : msg) {
                 System.out.println(m);
             }
         }
@@ -148,12 +149,12 @@ public class BattiService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/nicknameList")
-    public ArrayList<String> listNicknames(){
+    public ArrayList<String> listNicknames() {
 
         JDBCDAOImpl j = new JDBCDAOImpl();
-        try{
+        try {
             return j.retrieveNickNames();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
             msg.add("Exception in listNicknames" + e.getMessage());
@@ -162,33 +163,27 @@ public class BattiService {
 
     }
 
-    public boolean assessNickname(JDBCDAOImpl j, String nickName){
+    public boolean assessNickname(JDBCDAOImpl j, String nickName) {
         try {
             ArrayList<String> nkms = j.retrieveNickNames();
-            if(nkms.contains(nickName)){
+            if (nkms.contains(nickName)) {
                 return false;
             }
             return true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println("False due to exception in assessNickName.");
             return false;
         }
     }
 
-    public boolean assessAddress(JDBCDAOImpl j, String streetNumber,
-                                  String streetName,
-                                  String streetType,
-                                  String unitNumber,
-                                  String city,
-                                  String state,
-                                  String zipCode){
+    public boolean assessAddress(JDBCDAOImpl j, String combinedAddress) {
         try {
-            ArrayList<String> chk = j.checkAddress(streetNumber, streetName, streetType, unitNumber, city, state, zipCode);
-            if(chk.size() > 0){
+            ArrayList<String> chk = j.checkAddress(combinedAddress);
+            if (chk.size() > 0) {
                 return false;
             }
             return true;
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println("False due to exception in assessAddress.");
             return false;
         }
