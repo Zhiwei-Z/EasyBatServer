@@ -97,11 +97,11 @@ public class BattiService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/SignUp")
+    @Path("/signUp")
     public SignUpStatus customerSignUp(@QueryParam("street_number") String streetNumber,
+                                       @QueryParam("unit_number") String unitNumber,
                                        @QueryParam("street_name") String streetName,
                                        @QueryParam("street_type") String streetType,
-                                       @QueryParam("unit_number") String unitNumber,
                                        @QueryParam("city") String city,
                                        @QueryParam("state") String state,
                                        @QueryParam("zip_code") String zipCode,
@@ -110,7 +110,7 @@ public class BattiService {
         SignUpStatus sus = new SignUpStatus();
         try {
             //fist check if address is duplicated
-            String combinedAddress = j.combineAddress(streetNumber, streetName, streetType, unitNumber, city, state, zipCode);
+            String combinedAddress = j.combineAddress(streetNumber, unitNumber, streetName, streetType, city, state, zipCode);
             if (assessAddress(j, combinedAddress)) {
                 //check if nickname is duplicated
                 if (assessNickname(j, nickname)) {
@@ -118,18 +118,22 @@ public class BattiService {
                         UUID customerId = generator.generateId(secureRandom);
                         j.signUp(customerId.toString(), streetNumber, unitNumber, streetName, streetType, city, state, zipCode, nickname);
                         sus.setStatus("success");
+                        sus.setSuccessfulCustomerID(customerId.toString());
                     } catch (Exception e) {
                         System.out.println("exception thrown after checking address and nickname");
                         e.printStackTrace();
-                        sus.setStatus("fail");
+                        sus.setStatus("Our system error");
+                        sus.setSuccessfulCustomerID("");
                     }
                 } else {
                     System.out.println("Nickname has been used.");
-                    sus.setStatus("fail");
+                    sus.setStatus("Nickname has been used.");
+                    sus.setSuccessfulCustomerID("");
                 }
             } else {
                 System.out.println("Address has already been registered.");
-                sus.setStatus("fail");
+                sus.setStatus("Address has already been registered.");
+                sus.setSuccessfulCustomerID("");
             }
 
             return sus;

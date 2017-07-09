@@ -5,6 +5,7 @@ package com.batti.service;
  */
 public class SignUpStatus {
     String status;
+    String successfulCustomerID;
 
     public String getStatus() {
         return status;
@@ -12,6 +13,9 @@ public class SignUpStatus {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    public void setSuccessfulCustomerID(String successfulCustomerID) {
+        this.successfulCustomerID = successfulCustomerID;
     }
 
 }

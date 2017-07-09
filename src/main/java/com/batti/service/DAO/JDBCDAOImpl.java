@@ -184,8 +184,8 @@ public class JDBCDAOImpl implements BattiDAO {
                 zipCode);
         try {
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "INSERT INTO customer_info (customer_id, nickname,street_number, street_name, street_type, unit_number, city, state, zip_code, combined_address) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO customer_info (customer_id, nickname,street_number, street_name, street_type, unit_number, city, state, zip_code, combined_address, status) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, customerId);
             stmt.setString(2, nickname);
@@ -197,6 +197,7 @@ public class JDBCDAOImpl implements BattiDAO {
             stmt.setString(8, state);
             stmt.setString(9, zipCode);
             stmt.setString(10, address);
+            stmt.setInt(11, 0);
             stmt.execute();
         } catch (Exception e) {
             LOG.error("fail signing up", e);
@@ -211,7 +212,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail for some reason during signing ups", se);
             }
         }//end try
-        System.out.println("successfully sign up" );
+        System.out.println("successfully sign up user " + nickname );
     }
 
     public void changeCustomerStatus(String customerId) throws Exception{
@@ -265,7 +266,7 @@ public class JDBCDAOImpl implements BattiDAO {
             ResultSet rs = stmt.executeQuery();
             //STEP 5: Extract data from result set
             while(rs.next()){
-                String customer_id = rs.getString("customer_id ");
+                String customer_id = rs.getString("customer_id");
                 //Retrieve by column name
                 chk.add(customer_id);
             }
