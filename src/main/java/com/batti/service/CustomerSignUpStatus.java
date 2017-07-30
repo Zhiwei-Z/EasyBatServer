@@ -3,9 +3,9 @@ package com.batti.service;
 /**
  * Created by yonzhang on 6/27/17.
  */
-public class SignUpStatus {
-    String status;
-    String successfulCustomerID;
+public class CustomerSignUpStatus {
+    private String status;
+    private String successfulCustomerID;
 
     public String getStatus() {
         return status;
@@ -18,4 +18,7 @@ public class SignUpStatus {
         this.successfulCustomerID = successfulCustomerID;
     }
 
+    public String getSuccessfulCustomerID() {
+        return successfulCustomerID;
+    }
 }

@@ -1,6 +1,5 @@
 package com.batti.service;
 
-import com.batti.service.DAO.BattiDAO;
 import com.batti.service.DAO.JDBCDAOImpl;
 import com.batti.service.model.Order;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -9,17 +8,15 @@ import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.lang.reflect.Array;
 import java.security.SecureRandom;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
  * Created by yonzhang on 6/15/17.
  */
+
 @Path("/")
 public class BattiService {
     private static final Logger LOG = LoggerFactory.getLogger(BattiService.class);
@@ -30,11 +27,19 @@ public class BattiService {
 
     }
 
+    //*************************************************************************************//
+    //********************************CUSTOMER SERVICES************************************//
+    //*************************************************************************************//
+
+
+    /**
+     * @param customer_id the unique id of ever customer
+     * @return a orderStatus indicating if the order is success
+     */
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/placeOrder")
-
     public OrderStatus placeOrder(@QueryParam("customer_id") String customer_id) {
         JDBCDAOImpl j = new JDBCDAOImpl();
         OrderStatus ost = new OrderStatus();
@@ -42,10 +47,10 @@ public class BattiService {
             UUID orderId = generator.generateId(secureRandom);
 
             Order newOrder = new Order(orderId.toString(), customer_id, 0);
-            if (assessRequest(j, customer_id)) {
+            if (j.assessRequest(customer_id)) {
                 try {
                     j.createOrder(newOrder);
-                    j.changeCustomerStatus(customer_id);
+                    j.changeCustomerStatus(customer_id, 1);
                     ost.setStatus("success");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -66,18 +71,10 @@ public class BattiService {
         return new OrderStatus();
     }
 
-    public boolean assessRequest(JDBCDAOImpl j, String customer_id) {
-        try {
-            ArrayList<String> addrs = j.retrieveCustomerId();
-            if (addrs.contains(customer_id)) {
-                return false;
-            }
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
-    }
 
+    /**
+     * @return an arraylist of customerIds which has a active order record
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/orderList")
@@ -85,7 +82,7 @@ public class BattiService {
 
         JDBCDAOImpl j = new JDBCDAOImpl();
         try {
-            return j.retrieveCustomerId();
+            return j.retrieveOrderedCustomerId();
         } catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
@@ -95,28 +92,66 @@ public class BattiService {
 
     }
 
+    /**
+     *
+     * @param nickname the input of nickname, which is required to be unique
+     * @return a customerSignInStatus object, indicating if the signIn is success
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/signUp")
-    public SignUpStatus customerSignUp(@QueryParam("street_number") String streetNumber,
-                                       @QueryParam("unit_number") String unitNumber,
-                                       @QueryParam("street_name") String streetName,
-                                       @QueryParam("street_type") String streetType,
-                                       @QueryParam("city") String city,
-                                       @QueryParam("state") String state,
-                                       @QueryParam("zip_code") String zipCode,
-                                       @QueryParam("nickname") String nickname) {
+    @Path("/customerSignIn")
+    public CustomerSignInStatus customerSignIn(@QueryParam("nickname") String nickname){
         JDBCDAOImpl j = new JDBCDAOImpl();
-        SignUpStatus sus = new SignUpStatus();
+        CustomerSignInStatus sis = new CustomerSignInStatus();
+        try{
+            if(!j.retrieveCustomerNicknames().contains(nickname)){
+                //there is account associated with this account
+                sis.setStatus("success");
+                String cusId = j.signInAndReturnCustomerID(nickname);
+                //customerID is then stored into the JSON object
+                sis.setCustomerID(cusId);
+                System.out.println("sign in success with nickname: " + nickname + " and customerID: " + cusId);
+            }else{
+                sis.setStatus("No account associated.");
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
+        }
+        return sis;
+
+    }
+
+    /**
+     * Parameters: the address of the customer, in separate pieces; as well as the nickname
+     * @return a CustomerSignUpStatus indicating if the signUp is success
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/customerSignUp")
+    public CustomerSignUpStatus customerSignUp(@QueryParam("street_number") String streetNumber,
+                                               @QueryParam("unit_number") String unitNumber,
+                                               @QueryParam("street_name") String streetName,
+                                               @QueryParam("street_type") String streetType,
+                                               @QueryParam("city") String city,
+                                               @QueryParam("state") String state,
+                                               @QueryParam("zip_code") String zipCode,
+                                               @QueryParam("nickname") String nickname) {
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        CustomerSignUpStatus sus = new CustomerSignUpStatus();
         try {
             //fist check if address is duplicated
             String combinedAddress = j.combineAddress(streetNumber, unitNumber, streetName, streetType, city, state, zipCode);
-            if (assessAddress(j, combinedAddress)) {
+            if (j.assessCustomerAddress(combinedAddress)) {
                 //check if nickname is duplicated
-                if (assessNickname(j, nickname)) {
+                if (j.assessCustomerNickname(nickname)) {
                     try {
                         UUID customerId = generator.generateId(secureRandom);
-                        j.signUp(customerId.toString(), streetNumber, unitNumber, streetName, streetType, city, state, zipCode, nickname);
+                        j.customerSignUp(customerId.toString(), streetNumber, unitNumber, streetName, streetType, city, state, zipCode, nickname);
                         sus.setStatus("success");
                         sus.setSuccessfulCustomerID(customerId.toString());
                     } catch (Exception e) {
@@ -145,11 +180,14 @@ public class BattiService {
                 System.out.println(m);
             }
         }
-        return new SignUpStatus();
+        return new CustomerSignUpStatus();
 
 
     }
 
+    /**
+     * @return a a list of customer nicknames
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/nicknameList")
@@ -157,7 +195,7 @@ public class BattiService {
 
         JDBCDAOImpl j = new JDBCDAOImpl();
         try {
-            return j.retrieveNickNames();
+            return j.retrieveCustomerNicknames();
         } catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
@@ -167,30 +205,85 @@ public class BattiService {
 
     }
 
-    public boolean assessNickname(JDBCDAOImpl j, String nickName) {
-        try {
-            ArrayList<String> nkms = j.retrieveNickNames();
-            if (nkms.contains(nickName)) {
-                return false;
+
+
+
+    //**************************************************************************************//
+    //********************************VOLUNTEER SERVICES************************************//
+    //**************************************************************************************//
+
+
+    /**
+     * return a volunteerSignUpStatus object indicating if successfully signed up
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/volunteerSignUp")
+    public VolunteerSignUpStatus volunteerSignUp(@QueryParam("street_number") String streetNumber,
+                                       @QueryParam("unit_number") String unitNumber,
+                                       @QueryParam("street_name") String streetName,
+                                       @QueryParam("street_type") String streetType,
+                                       @QueryParam("city") String city,
+                                       @QueryParam("state") String state,
+                                       @QueryParam("zip_code") String zipCode,
+                                       @QueryParam("username") String username,
+                                       @QueryParam("email") String email,
+                                       @QueryParam("password") String password,
+                                       @QueryParam("idealCoverRange") int coverRange){
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        VolunteerSignUpStatus vss = new VolunteerSignUpStatus();
+        try{
+            String combinedAddress = j.combineAddress(streetNumber, unitNumber, streetName,
+                    streetType, city, state, zipCode);
+
+            // Check if the address is already registered
+            if(j.assessVolunteerAddress(combinedAddress)){
+
+                // Check if the email has already been registered
+                HashMap<String, String> emailPasswords = j.retrieveVolunteerEmailsPasswords();
+                if(!emailPasswords.containsKey(email)){
+
+                    try{
+                        UUID volunteerID = generator.generateId(secureRandom);
+                        j.volunteerSignUp(volunteerID.toString(),
+                                streetNumber, unitNumber, streetName, streetType, city, state, zipCode, username,
+                                email, password, coverRange);
+                        vss.setStatus("success");
+                        vss.setSuccessfulVolunteerID(volunteerID.toString());
+                    } catch (Exception e){
+                        LOG.info("exception thrown after checking address and nickname");
+                        e.printStackTrace();
+                        vss.setStatus("Our system error");
+                        vss.setSuccessfulVolunteerID("");
+                    }
+                }else{
+                    LOG.info("Email has already been registered.");
+                    vss.setStatus("Email has already been registered.");
+                }
+            }else{
+                LOG.info("Address has already been registered.");
+                vss.setStatus("Address has already been registered.");
             }
-            return true;
-        } catch (Exception ex) {
-            System.out.println("False due to exception in assessNickName.");
-            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception thrown here in volunteerSignUp" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
         }
+        return vss;
+
     }
 
-    public boolean assessAddress(JDBCDAOImpl j, String combinedAddress) {
-        try {
-            ArrayList<String> chk = j.checkAddress(combinedAddress);
-            if (chk.size() > 0) {
-                return false;
-            }
-            return true;
-        } catch (Exception ex) {
-            System.out.println("False due to exception in assessAddress.");
-            return false;
-        }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/volunteerSignIn")
+    public VolunteerSignInStatus volunteerSignIn(@QueryParam("email") String email, @QueryParam("password") String password){
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        VolunteerSignInStatus vss = new VolunteerSignInStatus();
+        return vss;
+
     }
 
 }
