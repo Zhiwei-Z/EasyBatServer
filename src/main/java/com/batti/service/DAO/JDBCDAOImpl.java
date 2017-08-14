@@ -518,9 +518,12 @@ public class JDBCDAOImpl implements BattiDAO {
      * Assume there is only one password associated with the email
      */
     public String returnPassword(String email) throws Exception{
+        if(email == null){
+            return null;
+        }
         Connection conn = null;
         PreparedStatement stmt = null;
-        String password = null;
+        String password;
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
@@ -611,11 +614,41 @@ public class JDBCDAOImpl implements BattiDAO {
      * input: email and its corresponding password
      * return the volunteerID associated with it
      */
-    public String signInAndReturnVolunteerID(String email, String password) throws Exception{
+    public String signInAndReturnVolunteerID(String email) throws Exception{
         Connection conn = null;
         PreparedStatement stmt = null;
-        String volunteerID;
-        return "";
+        String volunteerID ;
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "SELECT vol_id FROM volunteer_info WHERE email=?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            volunteerID = rs.getString("vol_id");
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+            throw se;
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+            throw e;
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    conn.close();
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }
+        return volunteerID;
     }
 
     /**

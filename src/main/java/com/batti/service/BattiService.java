@@ -104,7 +104,7 @@ public class BattiService {
         JDBCDAOImpl j = new JDBCDAOImpl();
         CustomerSignInStatus sis = new CustomerSignInStatus();
         try{
-            if(!j.retrieveCustomerNicknames().contains(nickname)){
+            if(j.retrieveCustomerNicknames().contains(nickname)){
                 //there is account associated with this account
                 sis.setStatus("success");
                 String cusId = j.signInAndReturnCustomerID(nickname);
@@ -282,8 +282,39 @@ public class BattiService {
     public VolunteerSignInStatus volunteerSignIn(@QueryParam("email") String email, @QueryParam("password") String password){
         JDBCDAOImpl j = new JDBCDAOImpl();
         VolunteerSignInStatus vss = new VolunteerSignInStatus();
+        try{
+            if(j.retrieveVolunteerEmailsPasswords().keySet().contains(email)){
+                //there is account associated with this account
+                if(j.retrieveVolunteerEmailsPasswords().get(email).equals(password)) {
+                    // if the password is correct
+                    vss.setStatus("success");
+                    String volID = j.signInAndReturnVolunteerID(email);
+                    //volunteerID is then stored into the JSON object
+                    vss.setVolunteerID(volID);
+                    System.out.println("sign in success with email: " + email + " and customerID: " + volID);
+                }else{
+                    vss.setStatus("Email valid, Password incorrect");
+                    LOG.info("Email valid, Password incorrect");
+                }
+            }else{
+                vss.setStatus("No account associated.");
+                LOG.info("No account associated");
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
+        }
         return vss;
-
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/volunteerTaskList")
+    public VolunteerTaskListStatus volunteerTaskList(@QueryParam("volunteerID") String volunteerID) {
+
+    }
 }
