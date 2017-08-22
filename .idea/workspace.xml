@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b977b7fb-ec3e-4529-8362-783726a90955" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiServiceTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskListStatus.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerInfoEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/OrderRecordEntry.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerResponsibilityStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/batti-server.iml" afterPath="$PROJECT_DIR$/batti-server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerSignInStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerSignInStatus.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="BattiService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="317" column="0" lean-forward="true" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
+            <state relative-caret-position="237">
+              <caret line="117" column="58" lean-forward="false" selection-start-line="117" selection-start-column="58" selection-end-line="117" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#BattiService#0;class#BattiService#0" expanded="false" />
@@ -38,15 +36,50 @@
                 <element signature="e#2233#2241#0" expanded="true" />
                 <element signature="method#listOrders#0;class#BattiService#0" expanded="false" />
                 <element signature="e#2880#2888#0" expanded="true" />
-                <element signature="e#4131#4139#0" expanded="true" />
+                <element signature="e#4535#4543#0" expanded="true" />
                 <element signature="method#customerSignUp#0;class#BattiService#0" expanded="false" />
-                <element signature="e#7091#7099#0" expanded="true" />
+                <element signature="e#7495#7503#0" expanded="true" />
                 <element signature="method#listNicknames#0;class#BattiService#0" expanded="false" />
-                <element signature="e#7743#7751#0" expanded="true" />
+                <element signature="e#8147#8155#0" expanded="true" />
                 <element signature="method#volunteerSignUp#0;class#BattiService#0" expanded="false" />
-                <element signature="e#11096#11104#0" expanded="true" />
+                <element signature="e#11501#11509#0" expanded="true" />
                 <element signature="method#volunteerSignIn#0;class#BattiService#0" expanded="false" />
-                <element signature="e#12699#12707#0" expanded="true" />
+                <element signature="e#13104#13112#0" expanded="true" />
+                <element signature="e#14001#14009#0" expanded="true" />
+                <element signature="e#14695#14703#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerSignInStatus.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="e#494#495#0" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#576#577#0" expanded="true" />
+                <element signature="e#613#614#0" expanded="true" />
+                <element signature="e#670#671#0" expanded="true" />
+                <element signature="e#722#723#0" expanded="true" />
+                <element signature="e#764#765#0" expanded="true" />
+                <element signature="e#805#806#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
+                <element signature="e#930#931#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VolunteerResponsibilityStatus.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerResponsibilityStatus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+              <folding>
+                <element signature="e#231#232#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,16 +88,10 @@
       <file leaf-file-name="VolunteerTaskListStatus.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskListStatus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
+            <state relative-caret-position="165">
               <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding>
                 <element signature="e#263#264#0" expanded="true" />
-                <element signature="e#307#308#0" expanded="true" />
-                <element signature="e#343#344#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#414#415#0" expanded="true" />
-                <element signature="e#467#468#0" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,44 +100,153 @@
       <file leaf-file-name="JDBCDAOImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1965">
-              <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+            <state relative-caret-position="373">
+              <caret line="1029" column="4" lean-forward="false" selection-start-line="1029" selection-start-column="4" selection-end-line="1029" selection-end-column="4" />
               <folding>
                 <element signature="method#createOrder#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#assessRequest#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#assessCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#retrieveOrderedCustomerId#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#retrieveCustomerNicknames#0;class#JDBCDAOImpl#0" expanded="false" />
-                <element signature="e#5844#5852#0" expanded="true" />
                 <element signature="method#signInAndReturnCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#customerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#changeCustomerStatus#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#checkCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#checkVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#volunteerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#returnPassword#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#retrieveVolunteerEmailsPasswords#0;class#JDBCDAOImpl#0" expanded="false" />
-                <element signature="e#19779#19787#0" expanded="true" />
-                <element signature="e#19846#19862#0" expanded="true" />
                 <element signature="method#signInAndReturnVolunteerID#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#assessVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#getCustomerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="e#23712#23731#0" expanded="true" />
+                <element signature="method#getOrderEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="e#26188#26206#0" expanded="true" />
+                <element signature="method#statusByCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#customerIDByOrderID#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#addressByCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#customerIDByAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#orderIDbyCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+                <element signature="method#volunteerTasks#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#combineAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-                <marker date="1502673505000" expanded="true" signature="1742:1851" ph="INSERT INTO user... " />
-                <marker date="1502673505000" expanded="true" signature="4346:4386" ph="SELECT addre... customerStatus" />
-                <marker date="1502673505000" expanded="true" signature="4346:4391" ph="SELECT custo... customer_info" />
-                <marker date="1502673505000" expanded="true" signature="5970:6004" ph="SELECT nickn... customer_info" />
-                <marker date="1502673505000" expanded="true" signature="7536:7573" ph="SELECT nickn... customer_info" />
-                <marker date="1502673505000" expanded="true" signature="7536:7590" ph="SELECT custo... customer_info" />
-                <marker date="1502673505000" expanded="true" signature="9474:9691" ph="INSERT INTO customer_info... " />
-                <marker date="1502673505000" expanded="true" signature="11038:11073" ph="UPDATE custo... " />
-                <marker date="1502673505000" expanded="true" signature="11038:11095" ph="UPDATE custo... " />
-                <marker date="1502673505000" expanded="true" signature="11038:11096" ph="UPDATE custo... " />
-                <marker date="1502673505000" expanded="true" signature="12255:12299" ph="SELECT custo... customer_info" />
-                <marker date="1502673505000" expanded="true" signature="12255:12319" ph="SELECT custo... customer_info" />
-                <marker date="1502673505000" expanded="true" signature="14256:14316" ph="SELECT vol_i... volunteer_info" />
-                <marker date="1502673505000" expanded="true" signature="16561:16845" ph="INSERT INTO volunteer_info... " />
-                <marker date="1502673505000" expanded="true" signature="18432:18483" ph="SELECT passw... volunteer_info" />
-                <marker date="1502673505000" expanded="true" signature="19981:20013" ph="SELECT email... volunteer_info" />
-                <marker date="1502673505000" expanded="true" signature="21611:21658" ph="SELECT vol_i... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="1829:1938" ph="INSERT INTO user... " />
+                <marker date="1503368252000" expanded="true" signature="4433:4473" ph="SELECT addre... customerStatus" />
+                <marker date="1503368252000" expanded="true" signature="4433:4478" ph="SELECT custo... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="6057:6091" ph="SELECT nickn... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="7623:7660" ph="SELECT nickn... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="7623:7677" ph="SELECT custo... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="9561:9778" ph="INSERT INTO customer_info... " />
+                <marker date="1503368252000" expanded="true" signature="11125:11160" ph="UPDATE custo... " />
+                <marker date="1503368252000" expanded="true" signature="11125:11182" ph="UPDATE custo... " />
+                <marker date="1503368252000" expanded="true" signature="11125:11183" ph="UPDATE custo... " />
+                <marker date="1503368252000" expanded="true" signature="12342:12386" ph="SELECT custo... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="12342:12406" ph="SELECT custo... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="14343:14403" ph="SELECT vol_i... volunteer_info" />
+                <marker date="1503368252000" expanded="true" signature="16648:16932" ph="INSERT INTO volunteer_info... " />
+                <marker date="1503368252000" expanded="true" signature="18519:18570" ph="SELECT passw... volunteer_info" />
+                <marker date="1503368252000" expanded="true" signature="20068:20100" ph="SELECT email... volunteer_info" />
+                <marker date="1503368252000" expanded="true" signature="21698:21745" ph="SELECT vol_i... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="23849:23999" ph="SELECT custo... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="26324:26447" ph="SELECT order... batti_order_record" />
+                <marker date="1503368252000" expanded="true" signature="28591:28643" ph="SELECT statu... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="30067:30144" ph="SELECT custo... batti_order_record" />
+                <marker date="1503368252000" expanded="true" signature="31566:31628" ph="SELECT combi... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="33058:33120" ph="SELECT custo... customer_info" />
+                <marker date="1503368252000" expanded="true" signature="34535:34612" ph="SELECT order... batti_order_record" />
+                <marker date="1503368252000" expanded="true" signature="36052:36108" ph="SELECT order... volunteer_task" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderRecordEntry.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderRecordEntry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#389#390#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#465#466#0" expanded="true" />
+                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="e#625#626#0" expanded="true" />
+                <element signature="e#669#670#0" expanded="true" />
+                <element signature="e#703#704#0" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#865#866#0" expanded="true" />
+                <element signature="e#899#900#0" expanded="true" />
+                <element signature="e#951#952#0" expanded="true" />
+                <element signature="e#997#998#0" expanded="true" />
+                <element signature="e#1033#1034#0" expanded="true" />
+                <element signature="e#1067#1068#0" expanded="true" />
+                <element signature="e#1119#1120#0" expanded="true" />
+                <element signature="e#1165#1166#0" expanded="true" />
+                <element signature="e#1202#1203#0" expanded="true" />
+                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#1291#1292#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+                <element signature="e#1376#1377#0" expanded="true" />
+                <element signature="e#1411#1412#0" expanded="true" />
+                <element signature="e#1465#1466#0" expanded="true" />
+                <element signature="e#1513#1514#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerInfoEntry.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/CustomerInfoEntry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+              <folding>
+                <element signature="e#458#459#0" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#525#526#0" expanded="true" />
+                <element signature="e#557#558#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#687#688#0" expanded="true" />
+                <element signature="e#735#736#0" expanded="true" />
+                <element signature="e#772#773#0" expanded="true" />
+                <element signature="e#805#806#0" expanded="true" />
+                <element signature="e#857#858#0" expanded="true" />
+                <element signature="e#901#902#0" expanded="true" />
+                <element signature="e#938#939#0" expanded="true" />
+                <element signature="e#971#972#0" expanded="true" />
+                <element signature="e#1023#1024#0" expanded="true" />
+                <element signature="e#1067#1068#0" expanded="true" />
+                <element signature="e#1104#1105#0" expanded="true" />
+                <element signature="e#1137#1138#0" expanded="true" />
+                <element signature="e#1189#1190#0" expanded="true" />
+                <element signature="e#1233#1234#0" expanded="true" />
+                <element signature="e#1265#1266#0" expanded="true" />
+                <element signature="e#1293#1294#0" expanded="true" />
+                <element signature="e#1335#1336#0" expanded="true" />
+                <element signature="e#1369#1370#0" expanded="true" />
+                <element signature="e#1403#1404#0" expanded="true" />
+                <element signature="e#1433#1434#0" expanded="true" />
+                <element signature="e#1479#1480#0" expanded="true" />
+                <element signature="e#1517#1518#0" expanded="true" />
+                <element signature="e#1547#1548#0" expanded="true" />
+                <element signature="e#1576#1577#0" expanded="true" />
+                <element signature="e#1617#1618#0" expanded="true" />
+                <element signature="e#1653#1654#0" expanded="true" />
+                <element signature="e#1695#1696#0" expanded="true" />
+                <element signature="e#1733#1734#0" expanded="true" />
+                <element signature="e#1795#1796#0" expanded="true" />
+                <element signature="e#1849#1850#0" expanded="true" />
+                <element signature="e#1884#1885#0" expanded="true" />
+                <element signature="e#1915#1916#0" expanded="true" />
+                <element signature="e#1963#1964#0" expanded="true" />
+                <element signature="e#2003#2004#0" expanded="true" />
+                <element signature="e#2126#2127#0" expanded="true" />
+                <element signature="e#2170#2171#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,10 +255,10 @@
       <file leaf-file-name="BattiServiceTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -143,6 +279,7 @@
     <findStrings>
       <find>user</find>
       <find>vss</find>
+      <find>pick_status=0</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,17 +312,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/OrderStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/SignUpStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/SignInStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerSignUpStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignUpStatus.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerSignInStatus.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/batti/service/BattiServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/BattiServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskListStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerResponsibilityStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/customerInfoEntry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerInfoEntry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/OrderInfoEntry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/OrderRecordEntry.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
       </list>
     </option>
   </component>
@@ -205,7 +347,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="814" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -224,8 +366,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -427,7 +569,7 @@
     <configuration default="false" name="BattiServiceTest.volunteerSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.batti.service.*" />
+          <option name="PATTERN" value="com.batti.service.OrderRecordEntry" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -453,7 +595,7 @@
     <configuration default="false" name="BattiServiceTest.testVolunteerSignIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.batti.service.*" />
+          <option name="PATTERN" value="com.batti.service.OrderRecordEntry" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -479,7 +621,7 @@
     <configuration default="false" name="BattiServiceTest.testVolunteerSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.batti.service.*" />
+          <option name="PATTERN" value="com.batti.service.OrderRecordEntry" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -1088,7 +1230,9 @@
       <workItem from="1500508797956" duration="256000" />
       <workItem from="1501355850111" duration="8761000" />
       <workItem from="1501715962769" duration="626000" />
-      <workItem from="1502671032449" duration="6525000" />
+      <workItem from="1502671032449" duration="9251000" />
+      <workItem from="1502905635119" duration="1566000" />
+      <workItem from="1503150709892" duration="3727000" />
     </task>
     <servers />
   </component>
@@ -1125,10 +1269,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84213000" />
+    <option name="totallyTimeSpent" value="92232000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="814" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1145,26 +1289,26 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49445984" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4329184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.433518" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26466382" sideWeight="0.47311828" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27181688" sideWeight="0.47311828" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32777777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26466382" sideWeight="0.5268817" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1178,18 +1322,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java</url>
-          <line>220</line>
+          <line>222</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java</url>
-          <line>106</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="34" />
+      <option name="time" value="35" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1198,27 +1336,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1329,9 +1446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1400,25 +1514,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#266#267#0" expanded="false" />
-            <element signature="e#302#303#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/batti/service/BattiServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/batti/service/BattiServiceTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerSignInStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1431,7 +1527,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1439,7 +1534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
           <caret line="1080" column="0" lean-forward="false" selection-start-line="1080" selection-start-column="0" selection-end-line="1080" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1447,7 +1541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="410" column="0" lean-forward="false" selection-start-line="410" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1455,7 +1548,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="204" column="0" lean-forward="false" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1463,16 +1555,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="330">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1481,7 +1572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="1109" column="0" lean-forward="false" selection-start-line="1109" selection-start-column="0" selection-end-line="1109" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,7 +1579,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="32" column="33" lean-forward="false" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1497,7 +1586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1505,30 +1593,141 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="600" column="0" lean-forward="false" selection-start-line="600" selection-start-column="0" selection-end-line="600" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/CustomerSignInStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#613#614#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
+            <element signature="e#764#765#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#930#931#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/CustomerInfoEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#687#688#0" expanded="true" />
+            <element signature="e#735#736#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#971#972#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1104#1105#0" expanded="true" />
+            <element signature="e#1137#1138#0" expanded="true" />
+            <element signature="e#1189#1190#0" expanded="true" />
+            <element signature="e#1233#1234#0" expanded="true" />
+            <element signature="e#1265#1266#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1335#1336#0" expanded="true" />
+            <element signature="e#1369#1370#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1479#1480#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+            <element signature="e#1547#1548#0" expanded="true" />
+            <element signature="e#1576#1577#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+            <element signature="e#1653#1654#0" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="e#1849#1850#0" expanded="true" />
+            <element signature="e#1884#1885#0" expanded="true" />
+            <element signature="e#1915#1916#0" expanded="true" />
+            <element signature="e#1963#1964#0" expanded="true" />
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2126#2127#0" expanded="true" />
+            <element signature="e#2170#2171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/OrderRecordEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#899#900#0" expanded="true" />
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+            <element signature="e#1033#1034#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+            <element signature="e#1202#1203#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#1291#1292#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1376#1377#0" expanded="true" />
+            <element signature="e#1411#1412#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1513#1514#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskListStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
+        <state relative-caret-position="165">
           <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
             <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#307#308#0" expanded="true" />
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#467#468#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerResponsibilityStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#231#232#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="317" column="0" lean-forward="true" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
+        <state relative-caret-position="237">
+          <caret line="117" column="58" lean-forward="false" selection-start-line="117" selection-start-column="58" selection-end-line="117" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#BattiService#0;class#BattiService#0" expanded="false" />
@@ -1536,59 +1735,77 @@
             <element signature="e#2233#2241#0" expanded="true" />
             <element signature="method#listOrders#0;class#BattiService#0" expanded="false" />
             <element signature="e#2880#2888#0" expanded="true" />
-            <element signature="e#4131#4139#0" expanded="true" />
+            <element signature="e#4535#4543#0" expanded="true" />
             <element signature="method#customerSignUp#0;class#BattiService#0" expanded="false" />
-            <element signature="e#7091#7099#0" expanded="true" />
+            <element signature="e#7495#7503#0" expanded="true" />
             <element signature="method#listNicknames#0;class#BattiService#0" expanded="false" />
-            <element signature="e#7743#7751#0" expanded="true" />
+            <element signature="e#8147#8155#0" expanded="true" />
             <element signature="method#volunteerSignUp#0;class#BattiService#0" expanded="false" />
-            <element signature="e#11096#11104#0" expanded="true" />
+            <element signature="e#11501#11509#0" expanded="true" />
             <element signature="method#volunteerSignIn#0;class#BattiService#0" expanded="false" />
-            <element signature="e#12699#12707#0" expanded="true" />
+            <element signature="e#13104#13112#0" expanded="true" />
+            <element signature="e#14001#14009#0" expanded="true" />
+            <element signature="e#14695#14703#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1965">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        <state relative-caret-position="373">
+          <caret line="1029" column="4" lean-forward="false" selection-start-line="1029" selection-start-column="4" selection-end-line="1029" selection-end-column="4" />
           <folding>
             <element signature="method#createOrder#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#assessRequest#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#assessCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#retrieveOrderedCustomerId#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#retrieveCustomerNicknames#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="e#5844#5852#0" expanded="true" />
             <element signature="method#signInAndReturnCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#customerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#changeCustomerStatus#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#checkCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#checkVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#volunteerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#returnPassword#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#retrieveVolunteerEmailsPasswords#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="e#19779#19787#0" expanded="true" />
-            <element signature="e#19846#19862#0" expanded="true" />
             <element signature="method#signInAndReturnVolunteerID#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#assessVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#getCustomerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="e#23712#23731#0" expanded="true" />
+            <element signature="method#getOrderEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="e#26188#26206#0" expanded="true" />
+            <element signature="method#statusByCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#customerIDByOrderID#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#addressByCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#customerIDByAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#orderIDbyCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#volunteerTasks#0;class#JDBCDAOImpl#0" expanded="false" />
             <element signature="method#combineAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-            <marker date="1502673505000" expanded="true" signature="1742:1851" ph="INSERT INTO user... " />
-            <marker date="1502673505000" expanded="true" signature="4346:4386" ph="SELECT addre... customerStatus" />
-            <marker date="1502673505000" expanded="true" signature="4346:4391" ph="SELECT custo... customer_info" />
-            <marker date="1502673505000" expanded="true" signature="5970:6004" ph="SELECT nickn... customer_info" />
-            <marker date="1502673505000" expanded="true" signature="7536:7573" ph="SELECT nickn... customer_info" />
-            <marker date="1502673505000" expanded="true" signature="7536:7590" ph="SELECT custo... customer_info" />
-            <marker date="1502673505000" expanded="true" signature="9474:9691" ph="INSERT INTO customer_info... " />
-            <marker date="1502673505000" expanded="true" signature="11038:11073" ph="UPDATE custo... " />
-            <marker date="1502673505000" expanded="true" signature="11038:11095" ph="UPDATE custo... " />
-            <marker date="1502673505000" expanded="true" signature="11038:11096" ph="UPDATE custo... " />
-            <marker date="1502673505000" expanded="true" signature="12255:12299" ph="SELECT custo... customer_info" />
-            <marker date="1502673505000" expanded="true" signature="12255:12319" ph="SELECT custo... customer_info" />
-            <marker date="1502673505000" expanded="true" signature="14256:14316" ph="SELECT vol_i... volunteer_info" />
-            <marker date="1502673505000" expanded="true" signature="16561:16845" ph="INSERT INTO volunteer_info... " />
-            <marker date="1502673505000" expanded="true" signature="18432:18483" ph="SELECT passw... volunteer_info" />
-            <marker date="1502673505000" expanded="true" signature="19981:20013" ph="SELECT email... volunteer_info" />
-            <marker date="1502673505000" expanded="true" signature="21611:21658" ph="SELECT vol_i... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="1829:1938" ph="INSERT INTO user... " />
+            <marker date="1503368252000" expanded="true" signature="4433:4473" ph="SELECT addre... customerStatus" />
+            <marker date="1503368252000" expanded="true" signature="4433:4478" ph="SELECT custo... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="6057:6091" ph="SELECT nickn... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="7623:7660" ph="SELECT nickn... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="7623:7677" ph="SELECT custo... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="9561:9778" ph="INSERT INTO customer_info... " />
+            <marker date="1503368252000" expanded="true" signature="11125:11160" ph="UPDATE custo... " />
+            <marker date="1503368252000" expanded="true" signature="11125:11182" ph="UPDATE custo... " />
+            <marker date="1503368252000" expanded="true" signature="11125:11183" ph="UPDATE custo... " />
+            <marker date="1503368252000" expanded="true" signature="12342:12386" ph="SELECT custo... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="12342:12406" ph="SELECT custo... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="14343:14403" ph="SELECT vol_i... volunteer_info" />
+            <marker date="1503368252000" expanded="true" signature="16648:16932" ph="INSERT INTO volunteer_info... " />
+            <marker date="1503368252000" expanded="true" signature="18519:18570" ph="SELECT passw... volunteer_info" />
+            <marker date="1503368252000" expanded="true" signature="20068:20100" ph="SELECT email... volunteer_info" />
+            <marker date="1503368252000" expanded="true" signature="21698:21745" ph="SELECT vol_i... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="23849:23999" ph="SELECT custo... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="26324:26447" ph="SELECT order... batti_order_record" />
+            <marker date="1503368252000" expanded="true" signature="28591:28643" ph="SELECT statu... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="30067:30144" ph="SELECT custo... batti_order_record" />
+            <marker date="1503368252000" expanded="true" signature="31566:31628" ph="SELECT combi... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="33058:33120" ph="SELECT custo... customer_info" />
+            <marker date="1503368252000" expanded="true" signature="34535:34612" ph="SELECT order... batti_order_record" />
+            <marker date="1503368252000" expanded="true" signature="36052:36108" ph="SELECT order... volunteer_task" />
           </folding>
         </state>
       </provider>

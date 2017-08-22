@@ -110,6 +110,12 @@ public class BattiService {
                 String cusId = j.signInAndReturnCustomerID(nickname);
                 //customerID is then stored into the JSON object
                 sis.setCustomerID(cusId);
+                // store the customer status in the JSON result
+                ArrayList<CustomerInfoEntry> a = j.getCustomerEntries(new String[]{"WHERE customer_id=" + cusId});
+                if(a.size() > 1) {
+                    throw new Exception("more than one customer with the customer_id: " + cusId + ", exists");
+                }
+                sis.setCustomerStatus(a.get(0).getStatus());
                 System.out.println("sign in success with nickname: " + nickname + " and customerID: " + cusId);
             }else{
                 sis.setStatus("No account associated.");
@@ -221,7 +227,7 @@ public class BattiService {
     @Path("/volunteerSignUp")
     public VolunteerSignUpStatus volunteerSignUp(@QueryParam("street_number") String streetNumber,
                                        @QueryParam("unit_number") String unitNumber,
-                                       @QueryParam("street_name") String streetName,
+                                       @QueryParam( "street_name") String streetName,
                                        @QueryParam("street_type") String streetType,
                                        @QueryParam("city") String city,
                                        @QueryParam("state") String state,
@@ -303,7 +309,7 @@ public class BattiService {
         }catch (Exception e) {
             e.printStackTrace();
             ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            msg.add("Exception thrown here in volunteerSignIn" + e.getMessage());
             for (String m : msg) {
                 System.out.println(m);
             }
@@ -315,6 +321,44 @@ public class BattiService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/volunteerTaskList")
     public VolunteerTaskListStatus volunteerTaskList(@QueryParam("volunteerID") String volunteerID) {
-
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        VolunteerTaskListStatus v = new VolunteerTaskListStatus();
+        try{
+            ArrayList<String> address = j.volunteerTasks(volunteerID);
+            if(!address.isEmpty()) {
+                v.setStatus("occupied");
+                v.setTasks(address);
+            }else{
+                v.setStatus("empty");
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
+        }
+        return v;
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/volunteerPickJob")
+    public VolunteerResponsibilityStatus volunteerPickJob(@QueryParam("volunteerID") String volunteerID, @QueryParam("address") String address) {
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        VolunteerResponsibilityStatus v = new VolunteerResponsibilityStatus();
+        try{
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<String>();
+            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
+        }
+        return v;
+    }
+
 }
