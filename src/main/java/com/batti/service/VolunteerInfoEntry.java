@@ -3,8 +3,8 @@ package com.batti.service;
 /**
  * Created by yonzhang on 8/21/17.
  */
-public class CustomerInfoEntry {
-    private String customerID;
+public class VolunteerInfoEntry {
+    private String volunteerID;
     private String streetNumber;
     private String unitNumber;
     private String streetName;
@@ -14,14 +14,17 @@ public class CustomerInfoEntry {
     private String zipCode;
     private int status;
     private String combinedAddress;
-    private String nickname;
+    private String username;
+    private String email;
+    private String password;
+    private int idealCoverRange;
 
-    public String getCity() {
-        return city;
+    public String getVolunteerID() {
+        return volunteerID;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setVolunteerID(String volunteerID) {
+        this.volunteerID = volunteerID;
     }
 
     public String getStreetNumber() {
@@ -56,6 +59,14 @@ public class CustomerInfoEntry {
         this.streetType = streetType;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getState() {
         return state;
     }
@@ -88,37 +99,35 @@ public class CustomerInfoEntry {
         this.combinedAddress = combinedAddress;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getCustomerID() {
-
-        return customerID;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "CustomerInfoEntry{" +
-                "customerID='" + customerID + '\'' +
-                ", streetNumber='" + streetNumber + '\'' +
-                ", unitNumber='" + unitNumber + '\'' +
-                ", streetName='" + streetName + '\'' +
-                ", streetType='" + streetType + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", status=" + status +
-                ", combinedAddress='" + combinedAddress + '\'' +
-                ", nickname='" + nickname + '\'' +
-                '}';
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getIdealCoverRange() {
+        return idealCoverRange;
+    }
+
+    public void setIdealCoverRange(int idealCoverRange) {
+        this.idealCoverRange = idealCoverRange;
     }
 }

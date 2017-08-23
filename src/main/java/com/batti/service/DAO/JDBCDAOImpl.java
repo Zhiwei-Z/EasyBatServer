@@ -4,6 +4,8 @@ import java.sql.*;
 
 import com.batti.service.CustomerInfoEntry;
 import com.batti.service.OrderRecordEntry;
+import com.batti.service.VolunteerInfoEntry;
+import com.batti.service.VolunteerTaskEntry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -676,7 +678,7 @@ public class JDBCDAOImpl implements BattiDAO {
     /**
      * Return an arraylist of CustomerInfoEntries with the query input
      */
-    public ArrayList<CustomerInfoEntry> getCustomerEntries(String[] args) throws Exception{
+    public ArrayList<CustomerInfoEntry> getCustomerEntries(String... args) throws Exception{
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -736,9 +738,73 @@ public class JDBCDAOImpl implements BattiDAO {
     }
 
     /**
+     *  Return an arraylist of VolunteerInfoEntry with the query input
+     */
+    public ArrayList<VolunteerInfoEntry> getVolunteerEntries(String... args) throws Exception {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ArrayList<VolunteerInfoEntry> result = new ArrayList<VolunteerInfoEntry>();
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "SELECT vol_id, street_number, unit_number, street_name, street_type, city, state, zip_code, status, combined_address, username, email, password, ideal_cover_range FROM volunteer_info";
+            StringBuilder s = new StringBuilder(sql);
+            // check if there's any restrictions
+            if(args.length == 1) {
+                s.append(args[0]);
+                sql = s.toString();
+            }
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            // Extract data from result set
+            while(rs.next()) {
+                VolunteerInfoEntry v = new VolunteerInfoEntry();
+                v.setVolunteerID(rs.getString("customer_id"));
+                v.setStreetNumber(rs.getString("street_number"));
+                v.setUnitNumber(rs.getString("unit_number"));
+                v.setStreetName(rs.getString("street_name"));
+                v.setStreetType(rs.getString("street_type"));
+                v.setCity(rs.getString("city"));
+                v.setState(rs.getString("state"));
+                v.setZipCode(rs.getString("zip_code"));
+                v.setStatus(rs.getInt("status"));
+                v.setCombinedAddress(rs.getString("combined_address"));
+                v.setUsername(rs.getString("nickname"));
+                v.setEmail(rs.getString("email"));
+                v.setPassword(rs.getString("password"));
+                v.setIdealCoverRange(rs.getInt("ideal_cover_range"));
+                result.add(v);
+            }
+            rs.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+            throw se;
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+            throw e;
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    conn.close();
+            }catch(SQLException se){
+            }// do nothing
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        return result;
+
+    }
+
+    /**
      * Return an arraylist of OrdeRecordEntries with the query input
      */
-    public ArrayList<OrderRecordEntry> getOrderEntries(String[] args) throws Exception{
+    public ArrayList<OrderRecordEntry> getOrderEntries(String... args) throws Exception{
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -792,28 +858,34 @@ public class JDBCDAOImpl implements BattiDAO {
         return result;
 
     }
-    /**
-     * Return the customer's status by the customerID
-     */
 
-    @Deprecated
-    public int statusByCustomerID(String customerID) throws Exception {
-        if(customerID == null){
-            throw new IllegalArgumentException("Input customerID is null");
-        }
+    /**
+     *  Return an arraylist of VolunteerTaskEntries with the query input
+     */
+    public ArrayList<VolunteerTaskEntry> getVolunteerTaskEntries(String... args) throws Exception {
         Connection conn = null;
         PreparedStatement stmt = null;
-        int status;
+        ArrayList<VolunteerTaskEntry> result = new ArrayList<VolunteerTaskEntry>();
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-            String sql = "SELECT status FROM customer_info WHERE customer_id=?";
+            String sql = "SELECT choice_id, order_id, volunteer_id, pick_up_status FROM volunteer_task";
+            StringBuilder s = new StringBuilder(sql);
+            // check if there's any restrictions
+            if(args.length == 1) {
+                s.append(args[0]);
+                sql = s.toString();
+            }
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, customerID);
             ResultSet rs = stmt.executeQuery();
-            //STEP 5: Extract data from result set
-            rs.next();
-            status = rs.getInt("status");
+            // Extract data from result set
+            while(rs.next()) {
+                VolunteerTaskEntry v = new VolunteerTaskEntry();
+                v.setChoiceID(rs.getString("choice_id"));
+                v.setOrderID(rs.getString("order_id"));
+                v.setVolunteerID(rs.getString("volunteer_id"));
+                v.setPickUpStatus(rs.getInt("pick_up_status"));
+                result.add(v);
+            }
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
@@ -837,239 +909,23 @@ public class JDBCDAOImpl implements BattiDAO {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        return status;
+        return result;
     }
 
-    /**
-     * Return the customerID according to the orderID
-     */
-    @Deprecated
-    public String customerIDByOrderID(String orderId) throws Exception{
-        if(orderId == null){
-            return null;
-        }
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        String customerID;
-        try{
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-            String sql = "SELECT customer_id FROM batti_order_record WHERE order_id=? AND pick_status=0";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, orderId);
-            ResultSet rs = stmt.executeQuery();
-            //STEP 5: Extract data from result set
-            rs.next();
-            customerID = rs.getString("customer_id");
-            rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-            throw e;
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        return customerID;
-    }
-
-    /**
-     * Return address by customerID
-     */
-    @Deprecated
-    public String addressByCustomerID(String customerID) throws Exception{
-        if(customerID == null){
-            return null;
-        }
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        String address;
-        try{
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-            String sql = "SELECT combined_address FROM customer_info WHERE customer_id=?";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, customerID);
-            ResultSet rs = stmt.executeQuery();
-            //STEP 5: Extract data from result set
-            rs.next();
-            address = rs.getString("combined_address");
-            rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-            throw e;
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        return address;
-    }
-
-    /**
-     * Return customerID by address
-     */
-    @Deprecated
-    public String customerIDByAddress(String combinedAddress) throws Exception {
-        if(combinedAddress == null){
-            return null;
-        }
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        String id;
-        try{
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-            String sql = "SELECT customer_ID FROM customer_info WHERE combined_address=?";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, combinedAddress);
-            ResultSet rs = stmt.executeQuery();
-            //STEP 5: Extract data from result set
-            rs.next();
-            id = rs.getString("customer_ID");
-            rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-            throw e;
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        return id;
-    }
-
-    /**
-     * Return orderID by CustomerID
-     */
-    @Deprecated
-    public String orderIDbyCustomerID(String customerID) throws Exception {
-        if(customerID == null){
-            return null;
-        }
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        String orderId;
-        try{
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-            String sql = "SELECT order_id FROM batti_order_record WHERE customer_id=? AND pick_status=0";
-            stmt = conn.prepareStatement(sql);
-            stmt.setString(1, customerID);
-            ResultSet rs = stmt.executeQuery();
-            //STEP 5: Extract data from result set
-            rs.next();
-            orderId = rs.getString("order_id");
-            rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-            throw e;
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        return orderId;
-    }
-    
     /**
      * Return an arraylist of addresses the volunteer signs up when giving the volunteer_id
      */
     public ArrayList<String> volunteerTasks(String volunteerID) throws Exception{
-        Connection conn = null;
-        PreparedStatement stmt1 = null;
-        ArrayList<String> addresses = new ArrayList<String>();
-        try{
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql1 = "SELECT order_id FROM volunteer_task WHERE volunteer_id=?";
-            stmt1 = conn.prepareStatement(sql1);
-            stmt1.setString(1, volunteerID);
-            ResultSet rs1 = stmt1.executeQuery();
-            //STEP 5: Extract data from result set
-            while(rs1.next()){
-                String orderID = rs1.getString("order_id");
-                addresses.add(addressByCustomerID(customerIDByOrderID(orderID)));
-            }
-            rs1.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-            throw e;
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt1!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        return addresses;
+        ArrayList<VolunteerTaskEntry> entries = getVolunteerTaskEntries("WHERE volunteer_id=" + volunteerID + " AND pick_up_status=0");
+        ArrayList<String> result = new ArrayList<String>();
+        for(VolunteerTaskEntry v : entries) {
+            String orderID = v.getOrderID();
+            OrderRecordEntry o = getOrderEntries("WHERE order_id=" + orderID).get(0);
+            String customerID = o.getCustomerID();
+            CustomerInfoEntry c = getCustomerEntries("WHERE customer_id=" + customerID).get(0);
+            result.add(c.getCombinedAddress());
+        }
+        return result;
     }
 
     /**

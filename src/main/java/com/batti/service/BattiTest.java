@@ -1,13 +1,16 @@
 package com.batti.service;
 
+import com.batti.service.DAO.JDBCDAOImpl;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 /**
  * Created by yonzhang on 8/13/17.
  */
-public class BattiServiceTest {
+public class BattiTest {
     @Test
     public void testVolunteerSignIn(){
         BattiService b = new BattiService();
@@ -22,5 +25,15 @@ public class BattiServiceTest {
                 "Avenue", "Fremont", "CA", "94538", "zheriman",
                 "2306827699@qq.com", "hitmeup", 100);
         assertEquals("success", v.getStatus());
+    }
+
+    @Test
+    public void testCustomerEntry() throws Exception{
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        ArrayList<CustomerInfoEntry> a = j.getCustomerEntries();
+        assertTrue(a.size() == 4);
+        for(CustomerInfoEntry c : a){
+            System.out.println(c);
+        }
     }
 }
