@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b977b7fb-ec3e-4529-8362-783726a90955" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerInfoEntry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskEntry.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiServiceTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/BattiTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerInfoEntry.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/CustomerInfoEntry.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BattiService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BattiService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="318" column="0" lean-forward="false" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
+            <state relative-caret-position="-225">
+              <caret line="326" column="42" lean-forward="false" selection-start-line="326" selection-start-column="42" selection-end-line="326" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#BattiService#0;class#BattiService#0" expanded="false" />
@@ -51,13 +46,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JDBCDAOImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JDBCDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="53" column="7" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="7" />
+            <state relative-caret-position="229">
+              <caret line="942" column="39" lean-forward="false" selection-start-line="942" selection-start-column="39" selection-end-line="942" selection-end-column="39" />
               <folding>
-                <element signature="method#createOrder#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#assessRequest#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#assessCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#retrieveOrderedCustomerId#0;class#JDBCDAOImpl#0" expanded="false" />
@@ -73,37 +67,35 @@
                 <element signature="method#signInAndReturnVolunteerID#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#assessVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
                 <element signature="method#getCustomerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-                <element signature="e#23803#23822#0" expanded="true" />
+                <element signature="e#23996#24015#0" expanded="true" />
                 <element signature="method#getVolunteerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-                <element signature="e#26290#26310#0" expanded="true" />
-                <element signature="method#getOrderEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-                <element signature="e#28981#28999#0" expanded="true" />
+                <element signature="e#26483#26503#0" expanded="true" />
+                <element signature="e#29174#29192#0" expanded="true" />
                 <element signature="method#getVolunteerTaskEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-                <element signature="e#31222#31242#0" expanded="true" />
-                <element signature="e#33290#33298#0" expanded="true" />
-                <element signature="method#combineAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-                <marker date="1503421587000" expanded="true" signature="1919:2028" ph="INSERT INTO user... " />
-                <marker date="1503421587000" expanded="true" signature="4523:4563" ph="SELECT addre... customerStatus" />
-                <marker date="1503421587000" expanded="true" signature="4523:4568" ph="SELECT custo... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="6147:6181" ph="SELECT nickn... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="7713:7750" ph="SELECT nickn... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="7713:7767" ph="SELECT custo... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="9651:9868" ph="INSERT INTO customer_info... " />
-                <marker date="1503421587000" expanded="true" signature="11215:11250" ph="UPDATE custo... " />
-                <marker date="1503421587000" expanded="true" signature="11215:11272" ph="UPDATE custo... " />
-                <marker date="1503421587000" expanded="true" signature="11215:11273" ph="UPDATE custo... " />
-                <marker date="1503421587000" expanded="true" signature="12432:12476" ph="SELECT custo... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="12432:12496" ph="SELECT custo... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="14433:14493" ph="SELECT vol_i... volunteer_info" />
-                <marker date="1503421587000" expanded="true" signature="16738:17022" ph="INSERT INTO volunteer_info... " />
-                <marker date="1503421587000" expanded="true" signature="18609:18660" ph="SELECT passw... volunteer_info" />
-                <marker date="1503421587000" expanded="true" signature="20158:20190" ph="SELECT email... volunteer_info" />
-                <marker date="1503421587000" expanded="true" signature="21788:21835" ph="SELECT vol_i... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="23940:24090" ph="SELECT custo... customer_info" />
-                <marker date="1503421587000" expanded="true" signature="26428:26610" ph="SELECT vol_i... volunteer_info" />
-                <marker date="1503421587000" expanded="true" signature="29117:29240" ph="SELECT order... batti_order_record" />
-                <marker date="1503421587000" expanded="true" signature="31360:31422" ph="SELECT choic... batti_order_record" />
-                <marker date="1503421587000" expanded="true" signature="31360:31436" ph="SELECT choic... volunteer_task" />
+                <element signature="e#31415#31435#0" expanded="true" />
+                <element signature="e#33483#33491#0" expanded="true" />
+                <marker date="1503503558000" expanded="true" signature="1919:2062" ph="INSERT INTO user... " />
+                <marker date="1503503558000" expanded="true" signature="4717:4757" ph="SELECT addre... customerStatus" />
+                <marker date="1503503558000" expanded="true" signature="4717:4762" ph="SELECT custo... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="6341:6375" ph="SELECT nickn... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="7907:7944" ph="SELECT nickn... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="7907:7961" ph="SELECT custo... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="9845:10062" ph="INSERT INTO customer_info... " />
+                <marker date="1503503558000" expanded="true" signature="11409:11444" ph="UPDATE custo... " />
+                <marker date="1503503558000" expanded="true" signature="11409:11466" ph="UPDATE custo... " />
+                <marker date="1503503558000" expanded="true" signature="11409:11467" ph="UPDATE custo... " />
+                <marker date="1503503558000" expanded="true" signature="12626:12670" ph="SELECT custo... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="12626:12690" ph="SELECT custo... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="14628:14688" ph="SELECT vol_i... volunteer_info" />
+                <marker date="1503503558000" expanded="true" signature="16933:17217" ph="INSERT INTO volunteer_info... " />
+                <marker date="1503503558000" expanded="true" signature="18804:18855" ph="SELECT passw... volunteer_info" />
+                <marker date="1503503558000" expanded="true" signature="20353:20385" ph="SELECT email... volunteer_info" />
+                <marker date="1503503558000" expanded="true" signature="21983:22030" ph="SELECT vol_i... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="24133:24283" ph="SELECT custo... customer_info" />
+                <marker date="1503503558000" expanded="true" signature="26621:26803" ph="SELECT vol_i... volunteer_info" />
+                <marker date="1503503558000" expanded="true" signature="29310:29433" ph="SELECT order... batti_order_record" />
+                <marker date="1503503558000" expanded="true" signature="31553:31615" ph="SELECT choic... batti_order_record" />
+                <marker date="1503503558000" expanded="true" signature="31553:31629" ph="SELECT choic... volunteer_task" />
               </folding>
             </state>
           </provider>
@@ -112,7 +104,7 @@
       <file leaf-file-name="VolunteerTaskEntry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskEntry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
+            <state relative-caret-position="91">
               <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding>
                 <element signature="e#288#289#0" expanded="true" />
@@ -174,6 +166,8 @@
       <find>vss</find>
       <find>pick_status=0</find>
       <find>OrderRecordEntry o = new OrderRecordEntry()</find>
+      <find>create</find>
+      <find>combine</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -305,55 +299,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="batti_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1135,7 +1081,7 @@
       <workItem from="1501715962769" duration="626000" />
       <workItem from="1502671032449" duration="9251000" />
       <workItem from="1502905635119" duration="1566000" />
-      <workItem from="1503150709892" duration="8619000" />
+      <workItem from="1503150709892" duration="11244000" />
     </task>
     <servers />
   </component>
@@ -1172,11 +1118,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97124000" />
+    <option name="totallyTimeSpent" value="99749000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="812" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1197,14 +1142,14 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.49713877" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27181688" sideWeight="0.47311828" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27181688" sideWeight="0.47311828" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32777777" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26466382" sideWeight="0.5268817" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1225,12 +1170,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java</url>
-          <line>224</line>
+          <line>226</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1636,7 +1581,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/VolunteerTaskEntry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
+        <state relative-caret-position="91">
           <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
             <element signature="e#288#289#0" expanded="true" />
@@ -1658,10 +1603,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="942" column="39" lean-forward="false" selection-start-line="942" selection-start-column="39" selection-end-line="942" selection-end-column="39" />
+          <folding>
+            <element signature="method#assessRequest#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#assessCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#retrieveOrderedCustomerId#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#retrieveCustomerNicknames#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#signInAndReturnCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#customerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#changeCustomerStatus#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#checkCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#checkVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#volunteerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#returnPassword#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#retrieveVolunteerEmailsPasswords#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#signInAndReturnVolunteerID#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#assessVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="method#getCustomerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="e#23996#24015#0" expanded="true" />
+            <element signature="method#getVolunteerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="e#26483#26503#0" expanded="true" />
+            <element signature="e#29174#29192#0" expanded="true" />
+            <element signature="method#getVolunteerTaskEntries#0;class#JDBCDAOImpl#0" expanded="false" />
+            <element signature="e#31415#31435#0" expanded="true" />
+            <element signature="e#33483#33491#0" expanded="true" />
+            <marker date="1503503558000" expanded="true" signature="1919:2062" ph="INSERT INTO user... " />
+            <marker date="1503503558000" expanded="true" signature="4717:4757" ph="SELECT addre... customerStatus" />
+            <marker date="1503503558000" expanded="true" signature="4717:4762" ph="SELECT custo... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="6341:6375" ph="SELECT nickn... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="7907:7944" ph="SELECT nickn... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="7907:7961" ph="SELECT custo... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="9845:10062" ph="INSERT INTO customer_info... " />
+            <marker date="1503503558000" expanded="true" signature="11409:11444" ph="UPDATE custo... " />
+            <marker date="1503503558000" expanded="true" signature="11409:11466" ph="UPDATE custo... " />
+            <marker date="1503503558000" expanded="true" signature="11409:11467" ph="UPDATE custo... " />
+            <marker date="1503503558000" expanded="true" signature="12626:12670" ph="SELECT custo... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="12626:12690" ph="SELECT custo... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="14628:14688" ph="SELECT vol_i... volunteer_info" />
+            <marker date="1503503558000" expanded="true" signature="16933:17217" ph="INSERT INTO volunteer_info... " />
+            <marker date="1503503558000" expanded="true" signature="18804:18855" ph="SELECT passw... volunteer_info" />
+            <marker date="1503503558000" expanded="true" signature="20353:20385" ph="SELECT email... volunteer_info" />
+            <marker date="1503503558000" expanded="true" signature="21983:22030" ph="SELECT vol_i... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="24133:24283" ph="SELECT custo... customer_info" />
+            <marker date="1503503558000" expanded="true" signature="26621:26803" ph="SELECT vol_i... volunteer_info" />
+            <marker date="1503503558000" expanded="true" signature="29310:29433" ph="SELECT order... batti_order_record" />
+            <marker date="1503503558000" expanded="true" signature="31553:31615" ph="SELECT choic... batti_order_record" />
+            <marker date="1503503558000" expanded="true" signature="31553:31629" ph="SELECT choic... volunteer_task" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/BattiService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="318" column="0" lean-forward="false" selection-start-line="318" selection-start-column="0" selection-end-line="318" selection-end-column="0" />
+        <state relative-caret-position="-225">
+          <caret line="326" column="42" lean-forward="false" selection-start-line="326" selection-start-column="42" selection-end-line="326" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#BattiService#0;class#BattiService#0" expanded="false" />
@@ -1680,62 +1678,6 @@
             <element signature="e#13104#13112#0" expanded="true" />
             <element signature="e#14001#14009#0" expanded="true" />
             <element signature="e#14695#14703#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/batti/service/DAO/JDBCDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="53" column="7" lean-forward="false" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="7" />
-          <folding>
-            <element signature="method#createOrder#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#assessRequest#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#assessCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#retrieveOrderedCustomerId#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#retrieveCustomerNicknames#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#signInAndReturnCustomerID#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#customerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#changeCustomerStatus#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#checkCustomerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#checkVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#volunteerSignUp#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#returnPassword#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#retrieveVolunteerEmailsPasswords#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#signInAndReturnVolunteerID#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#assessVolunteerAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="method#getCustomerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="e#23803#23822#0" expanded="true" />
-            <element signature="method#getVolunteerEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="e#26290#26310#0" expanded="true" />
-            <element signature="method#getOrderEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="e#28981#28999#0" expanded="true" />
-            <element signature="method#getVolunteerTaskEntries#0;class#JDBCDAOImpl#0" expanded="false" />
-            <element signature="e#31222#31242#0" expanded="true" />
-            <element signature="e#33290#33298#0" expanded="true" />
-            <element signature="method#combineAddress#0;class#JDBCDAOImpl#0" expanded="false" />
-            <marker date="1503421587000" expanded="true" signature="1919:2028" ph="INSERT INTO user... " />
-            <marker date="1503421587000" expanded="true" signature="4523:4563" ph="SELECT addre... customerStatus" />
-            <marker date="1503421587000" expanded="true" signature="4523:4568" ph="SELECT custo... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="6147:6181" ph="SELECT nickn... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="7713:7750" ph="SELECT nickn... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="7713:7767" ph="SELECT custo... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="9651:9868" ph="INSERT INTO customer_info... " />
-            <marker date="1503421587000" expanded="true" signature="11215:11250" ph="UPDATE custo... " />
-            <marker date="1503421587000" expanded="true" signature="11215:11272" ph="UPDATE custo... " />
-            <marker date="1503421587000" expanded="true" signature="11215:11273" ph="UPDATE custo... " />
-            <marker date="1503421587000" expanded="true" signature="12432:12476" ph="SELECT custo... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="12432:12496" ph="SELECT custo... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="14433:14493" ph="SELECT vol_i... volunteer_info" />
-            <marker date="1503421587000" expanded="true" signature="16738:17022" ph="INSERT INTO volunteer_info... " />
-            <marker date="1503421587000" expanded="true" signature="18609:18660" ph="SELECT passw... volunteer_info" />
-            <marker date="1503421587000" expanded="true" signature="20158:20190" ph="SELECT email... volunteer_info" />
-            <marker date="1503421587000" expanded="true" signature="21788:21835" ph="SELECT vol_i... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="23940:24090" ph="SELECT custo... customer_info" />
-            <marker date="1503421587000" expanded="true" signature="26428:26610" ph="SELECT vol_i... volunteer_info" />
-            <marker date="1503421587000" expanded="true" signature="29117:29240" ph="SELECT order... batti_order_record" />
-            <marker date="1503421587000" expanded="true" signature="31360:31422" ph="SELECT choic... batti_order_record" />
-            <marker date="1503421587000" expanded="true" signature="31360:31436" ph="SELECT choic... volunteer_task" />
           </folding>
         </state>
       </provider>

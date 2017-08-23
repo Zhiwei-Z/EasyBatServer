@@ -57,12 +57,14 @@ public class JDBCDAOImpl implements BattiDAO {
         PreparedStatement stmt = null;
         try {
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "INSERT INTO batti_order_record (order_id, customer_id, pick_status) " +
-                    "VALUES (?, ?, ?)";
+            String sql = "INSERT INTO batti_order_record (order_id, customer_id, pick_status, created_date, created_time) " +
+                    "VALUES (?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, order.getOrder_id());
             stmt.setString(2, order.getCustomer_id());
             stmt.setInt(3, order.getPick_status());
+            stmt.setDate(4, new java.sql.Date(new java.util.Date().getTime()));
+            stmt.setTime(5, new java.sql.Time(new java.util.Date().getTime()));
             stmt.execute();
         } catch (Exception e) {
             LOG.error("fail creating order", e);
@@ -398,6 +400,7 @@ public class JDBCDAOImpl implements BattiDAO {
     }
 
 
+
     //*************************************************************************************//
     //********************************VOLUNTEER METHODS************************************//
     //*************************************************************************************//
@@ -669,8 +672,6 @@ public class JDBCDAOImpl implements BattiDAO {
         }
     }
 
-
-
     //*************************************************************************************//
     //********************************UTILITY METHODS**************************************//
     //*************************************************************************************//
@@ -939,7 +940,7 @@ public class JDBCDAOImpl implements BattiDAO {
                                  String state,
                                  String zipCode){
         return streetNumber + " " +
-                unitNumber + " " +
+                (unitNumber.equals("0") ? "" : unitNumber + " ") +
                 streetName + " " +
                 streetType + ", " +
                 city + ", " +
