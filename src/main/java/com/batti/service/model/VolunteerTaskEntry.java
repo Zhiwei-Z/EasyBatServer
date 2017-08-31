@@ -1,4 +1,4 @@
-package com.batti.service;
+package com.batti.service.model;
 
 /**
  * Created by yonzhang on 8/21/17.

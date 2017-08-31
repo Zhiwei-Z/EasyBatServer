@@ -1,11 +1,11 @@
-package com.batti.service;
+package com.batti.service.model;
 
 /**
  * Created by yonzhang on 8/16/17.
  */
 public class VolunteerResponsibilityStatus {
     private String status;
-    private String orderId;
+    private String choiceID;
 
     public String getStatus() {
         return status;
@@ -15,11 +15,11 @@ public class VolunteerResponsibilityStatus {
         this.status = status;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public String getChoiceID() {
+        return choiceID;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setChoiceID(String choiceID) {
+        this.choiceID = choiceID;
     }
 }

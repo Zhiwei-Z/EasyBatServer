@@ -2,10 +2,13 @@ package com.batti.service.DAO;
 import java.sql.*;
 
 
-import com.batti.service.CustomerInfoEntry;
-import com.batti.service.OrderRecordEntry;
-import com.batti.service.VolunteerInfoEntry;
-import com.batti.service.VolunteerTaskEntry;
+import com.batti.service.model.CustomerInfoEntry;
+import com.batti.service.model.OrderRecordEntry;
+import com.batti.service.model.VolunteerInfoEntry;
+import com.batti.service.model.VolunteerTaskEntry;
+import com.google.maps.DistanceMatrixApi;
+import com.google.maps.GeoApiContext;
+import com.google.maps.model.DistanceMatrix;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 
 import com.batti.service.model.Order;
@@ -23,6 +25,7 @@ import com.batti.service.model.Order;
  * Created by yonzhang on 6/17/17.
  */
 public class JDBCDAOImpl implements BattiDAO {
+    static final String distanceMatrixApiKey = "AIzaSyB2r_Yo8URXrpiKuciAU__n06Yp-iJKSXM";
     Logger LOG = LoggerFactory.getLogger(JDBCDAOImpl.class);
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -57,14 +60,16 @@ public class JDBCDAOImpl implements BattiDAO {
         PreparedStatement stmt = null;
         try {
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "INSERT INTO batti_order_record (order_id, customer_id, pick_status, created_date, created_time) " +
-                    "VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO batti_order_record (order_id, customer_id, pick_status, created_date, created_time, address, if_occupied) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, order.getOrder_id());
             stmt.setString(2, order.getCustomer_id());
             stmt.setInt(3, order.getPick_status());
             stmt.setDate(4, new java.sql.Date(new java.util.Date().getTime()));
             stmt.setTime(5, new java.sql.Time(new java.util.Date().getTime()));
+            stmt.setString(6, order.getAddress());
+            stmt.setInt(7, 0);
             stmt.execute();
         } catch (Exception e) {
             LOG.error("fail creating order", e);
@@ -86,13 +91,8 @@ public class JDBCDAOImpl implements BattiDAO {
      * if the associated customer has already placed order, return false
      * else return true
      */
-    public boolean assessRequest(String customer_id) {
-        try {
-            ArrayList<String> addrs = retrieveOrderedCustomerId();
-            return !addrs.contains(customer_id);
-        } catch (Exception ex) {
-            return false;
-        }
+    public boolean assessRequest(String customer_id) throws Exception{
+        return getCustomerEntries("WHERE customer_id=\"" + customer_id + "\"").get(0).getStatus() == 0;
     }
 
     /**
@@ -131,46 +131,11 @@ public class JDBCDAOImpl implements BattiDAO {
      * @return and arraylist of customerID
      */
     public ArrayList<String> retrieveOrderedCustomerId() throws Exception{
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ArrayList<String> ids = new ArrayList<String>();
-        try{
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "SELECT customer_id, status FROM customer_info";
-            stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            //STEP 5: Extract data from result set
-            while(rs.next()){
-                String customer_id = rs.getString("customer_id");
-                int status = rs.getInt("status");
-                //Retrieve by column name
-               if(status == 1){
-                   ids.add(customer_id);
-               }
-            }
-            rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
-        }catch(Exception e){
-            //Handle errors for Class.forName
-            e.printStackTrace();
-            throw e;
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    conn.close();
-            }catch(SQLException se){
-            }// do nothing
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
+
+        ArrayList<String> ids = new ArrayList<>();
+        for(CustomerInfoEntry c : getCustomerEntries("WHERE status=0")) {
+            ids.add(c.getCustomerID());
+        }
         return ids;
     }
 
@@ -418,7 +383,7 @@ public class JDBCDAOImpl implements BattiDAO {
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
-            String sql = "SELECT vol_id FROM volunteer_info WHERE combined_address = ?";
+            String sql = "SELECT volunteer_id FROM volunteer_info WHERE combined_address = ?";
             stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, combinedAddress);
@@ -426,7 +391,7 @@ public class JDBCDAOImpl implements BattiDAO {
             ResultSet rs = stmt.executeQuery();
             //STEP 5: Extract data from result set
             while(rs.next()){
-                String customer_id = rs.getString("vol_id");
+                String customer_id = rs.getString("volunteer_id");
                 //Retrieve by column name
                 chk.add(customer_id);
             }
@@ -484,9 +449,9 @@ public class JDBCDAOImpl implements BattiDAO {
                 zipCode);
         try {
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "INSERT INTO volunteer_info (vol_id, street_number, unit_number, street_name, street_type, " +
-                    "city, state, zip_code, status, combined_address, username, email, password, ideal_cover_range) " +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO volunteer_info (volunteer_id, street_number, unit_number, street_name, street_type, " +
+                    "city, state, zip_code, status, combined_address, username, email, password, ideal_cover_range, jobs) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, volId);
             stmt.setString(2, streetNumber);
@@ -502,6 +467,7 @@ public class JDBCDAOImpl implements BattiDAO {
             stmt.setString(12, email);
             stmt.setString(13, password);
             stmt.setInt(14, idealCoverRange);
+            stmt.setInt(15, 0);
             stmt.execute();
         } catch (Exception e) {
             LOG.error("fail signing the volunteer up", e);
@@ -520,6 +486,214 @@ public class JDBCDAOImpl implements BattiDAO {
 
     }
 
+    /**
+     * Assume the volunteerID is valid and the customer with the address did requested a pickup
+     * Insert the record that the volunteer intends to accept the job at the address
+     */
+    public void volunteerPickJob(String choiceID, String volunterID, String address) throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            String customerID = getCustomerEntries("WHERE combined_address=\"" + address + "\"").get(0).getCustomerID();
+            String orderID = getOrderEntries("WHERE customer_id=\"" + customerID + "\" AND pick_status=0").get(0).getOrderID();
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "INSERT INTO volunteer_task(choice_id, order_id, volunteer_id, pick_up_status) VALUES (?, ?, ?, ?)";
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, choiceID);
+            stmt.setString(2, orderID);
+            stmt.setString(3, volunterID);
+            stmt.setInt(4, 0);
+            stmt.execute();
+            changeVolunteerStatus(volunterID, 1);
+            changeOccupiedStatus(orderID, 1);
+        } catch (Exception e) {
+            LOG.error("fail make the job choice", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                LOG.error("fail because of connection", se);
+            }
+        }//end try
+        System.out.println("successfully sign make a job choice" );
+    }
+
+    /**
+     * Change order_record occupied_status
+     */
+    public void changeOccupiedStatus(String orderID, int status) throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "UPDATE batti_order_record SET if_occupied=? WHERE order_id=?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, status);
+            stmt.setString(2, orderID);
+            stmt.execute();
+        } catch (Exception e) {
+            LOG.error("fail creating order", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                LOG.error("fail", se);
+            }
+        }//end try
+        System.out.println("successfully changed if_occupied status");
+    }
+
+    /**
+     * Update the database to indicate that the volunteer has completed the job
+     * (update pick_up_status in the volunteer_task table)
+     * (update modified_date and modified_time and status in batti_order_record table)
+     * (update status in volunteer_info table if the volunteer has no more tasks)
+     * (update status in customer_info table)
+     */
+    public int volunteerFinishesJob(String volunteerID, String address) throws Exception {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            String orderID = getOrderEntries("WHERE address=\"" + address + "\" AND pick_status=0").get(0).getOrderID();
+            VolunteerInfoEntry v = getVolunteerEntries("WHERE volunteer_id=\"" + volunteerID + "\"").get(0);
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "UPDATE volunteer_task SET pick_up_status=? WHERE order_id=?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, 1);
+            stmt.setString(2, orderID);
+            stmt.execute();
+            // update modified_date and modified_time and status in batti_order_record table
+            updateModifiedTimeAndStatus(orderID, 1);
+            //update status in customer_info table
+            String customerID = getCustomerEntries("WHERE combined_address=\"" + address + "\"").get(0).getCustomerID();
+            changeCustomerStatus(customerID, 0);
+            // update the volunteer's number of jobs
+            changeVolunteerJobsNumber(volunteerID, v.getJobs() - 1);
+            // update status in volunteer_info table if the volunteer has no more tasks
+            int remains = v.getJobs() - 1;
+            if(remains == 0) {
+                changeVolunteerStatus(volunteerID, 0);
+                return 0;
+            }else{
+                return remains;
+            }
+        } catch (Exception e) {
+            LOG.error("fail make the job choice", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                LOG.error("fail for because of connection.", se);
+            }
+        }//end try
+    }
+
+    /**
+     *  Update modified date and modified time
+     */
+    public void updateModifiedTimeAndStatus(String orderID, int status) throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "UPDATE batti_order_record SET modified_date=?, modified_time=?, pick_status=? WHERE order_id=?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setDate(1, new java.sql.Date(new java.util.Date().getTime()));
+            stmt.setTime(2, new java.sql.Time(new java.util.Date().getTime()));
+            stmt.setInt(3, status);
+            stmt.setString(4, orderID);
+            stmt.execute();
+        } catch (Exception e) {
+            LOG.error("fail make update modified time", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                LOG.error("fail for because of connection..", se);
+            }
+        }//end try
+        System.out.println("successfully sign make a job choice" );
+    }
+
+    /**
+     * Change the number of jobs of a volunteer
+     */
+    public void changeVolunteerJobsNumber(String volunteerID, int jobs) throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "UPDATE volunteer_info SET jobs = ? WHERE volunteer_id = ?";
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, jobs);
+            stmt.setString(2, volunteerID);
+            stmt.execute();
+        }catch (Exception e) {
+            LOG.error("fail changing status", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                System.out.println("error");
+                LOG.error("Fail", se);
+            }
+        }//end try
+        System.out.println("successfully changed volunteer_status");
+    }
+
+    /**
+     * Change the volunteer job status
+     */
+    public void changeVolunteerStatus(String volunteerID, int status) throws Exception{
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+            String sql = "UPDATE volunteer_info SET status = ? WHERE volunteer_id = ?";
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, status);
+            stmt.setString(2, volunteerID);
+            stmt.execute();
+        }catch (Exception e) {
+            LOG.error("fail changing status", e);
+            throw e;
+        } finally {
+            try {
+                if (stmt != null)
+                    conn.close();
+                if (conn != null)
+                    conn.close();
+            } catch (SQLException se) {
+                System.out.println("error");
+                LOG.error("Fail", se);
+            }
+        }//end try
+        System.out.println("successfully changed volunteer_status");
+    }
 
     /**
      * Assume there is only one password associated with the email
@@ -627,12 +801,12 @@ public class JDBCDAOImpl implements BattiDAO {
         String volunteerID ;
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "SELECT vol_id FROM volunteer_info WHERE email=?";
+            String sql = "SELECT volunteer_id FROM volunteer_info WHERE email=?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-            volunteerID = rs.getString("vol_id");
+            volunteerID = rs.getString("volunteer_id");
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();
@@ -672,9 +846,86 @@ public class JDBCDAOImpl implements BattiDAO {
         }
     }
 
+    /**
+     * Return an arraylist of addresses the volunteer signs up when giving the volunteer_id
+     */
+    public ArrayList<String> volunteerTasks(String volunteerID) throws Exception{
+        ArrayList<VolunteerTaskEntry> entries = getVolunteerTaskEntries("WHERE volunteer_id=\"" + volunteerID + "\" AND pick_up_status=0");
+        ArrayList<String> result = new ArrayList<>();
+        for(VolunteerTaskEntry v : entries) {
+            String orderID = v.getOrderID();
+            OrderRecordEntry o = getOrderEntries("WHERE order_id=\"" + orderID + "\"").get(0);
+            String customerID = o.getCustomerID();
+            CustomerInfoEntry c = getCustomerEntries("WHERE customer_id=\"" + customerID + "\"").get(0);
+            result.add(c.getCombinedAddress());
+        }
+        return result;
+    }
+
+    /**
+     * Return an arrayList of address that are un occupied
+     */
+    public ArrayList<String> unoccupiedAddresses() throws Exception {
+        ArrayList<OrderRecordEntry> entries = getOrderEntries("WHERE if_occupied=0 AND if_occupied=0");
+        ArrayList<String> result = new ArrayList<>();
+        for(OrderRecordEntry o : entries) {
+            String customerID = o.getCustomerID();
+            CustomerInfoEntry c = getCustomerEntries("WHERE customer_id=\"" + customerID + "\"").get(0);
+            String address = c.getCombinedAddress();
+            result.add(address);
+        }
+        return result;
+    }
+
+    /**
+     * Sort the addresses based on distance
+     */
+    public SortedMap<String, Double> permuteAddresses(final String origin, ArrayList<String> destinations) {
+        SortedMap<String, Double> distMap = new TreeMap<>((x, y) -> (Double.compare(distance(origin, x), distance(origin, y))));
+        try {
+            for(String d : destinations) {
+                distMap.put(d, Math.round(distance(origin, d) * 100.0) / 100.0);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return distMap;
+    }
+
+    /**
+     * Update the volunteer_task db to set the pick_up_status to be -1
+     * Update the batti_order_record to set the if_occupied to be 0
+     * Update the volunteer_info's status if the volunteer has no other job left
+     * Changes the volunteer's job number
+     */
+    public void volunteerCancelAssignment(String volunteerID, String orderID) {
+
+    }
+
     //*************************************************************************************//
     //********************************UTILITY METHODS**************************************//
     //*************************************************************************************//
+
+    /**
+     * Returns the distance between the origin location to the destination location
+     */
+    public double distance(String origin, String destination) {
+        try {
+            GeoApiContext context = new GeoApiContext.Builder()
+                    .apiKey(distanceMatrixApiKey)
+                    .build();
+            DistanceMatrix dm = DistanceMatrixApi.newRequest(context)
+                    .origins(origin)
+                    .destinations(destination)
+                    .await();
+            System.out.println(dm.rows[0].elements[0].status);
+            return (dm.rows[0].elements[0].distance.inMeters / 1000.0) / 1.6;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+
+    }
 
     /**
      * Return an arraylist of CustomerInfoEntries with the query input
@@ -686,7 +937,7 @@ public class JDBCDAOImpl implements BattiDAO {
         ArrayList<CustomerInfoEntry> result = new ArrayList<CustomerInfoEntry>();
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "SELECT customer_id, street_number, unit_number, street_name, street_type, city, state, zip_code, status, combined_address, nickname FROM customer_info";
+            String sql = "SELECT customer_id, street_number, unit_number, street_name, street_type, city, state, zip_code, status, combined_address, nickname FROM customer_info ";
             StringBuilder s = new StringBuilder(sql);
             // check if there's any restrictions
             if(args.length == 1) {
@@ -744,10 +995,10 @@ public class JDBCDAOImpl implements BattiDAO {
     public ArrayList<VolunteerInfoEntry> getVolunteerEntries(String... args) throws Exception {
         Connection conn = null;
         PreparedStatement stmt = null;
-        ArrayList<VolunteerInfoEntry> result = new ArrayList<VolunteerInfoEntry>();
+        ArrayList<VolunteerInfoEntry> result = new ArrayList<>();
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "SELECT vol_id, street_number, unit_number, street_name, street_type, city, state, zip_code, status, combined_address, username, email, password, ideal_cover_range FROM volunteer_info";
+            String sql = "SELECT volunteer_id, street_number, unit_number, street_name, street_type, city, state, zip_code, status, combined_address, username, email, password, ideal_cover_range, jobs FROM volunteer_info ";
             StringBuilder s = new StringBuilder(sql);
             // check if there's any restrictions
             if(args.length == 1) {
@@ -759,7 +1010,7 @@ public class JDBCDAOImpl implements BattiDAO {
             // Extract data from result set
             while(rs.next()) {
                 VolunteerInfoEntry v = new VolunteerInfoEntry();
-                v.setVolunteerID(rs.getString("customer_id"));
+                v.setVolunteerID(rs.getString("volunteer_id"));
                 v.setStreetNumber(rs.getString("street_number"));
                 v.setUnitNumber(rs.getString("unit_number"));
                 v.setStreetName(rs.getString("street_name"));
@@ -769,10 +1020,11 @@ public class JDBCDAOImpl implements BattiDAO {
                 v.setZipCode(rs.getString("zip_code"));
                 v.setStatus(rs.getInt("status"));
                 v.setCombinedAddress(rs.getString("combined_address"));
-                v.setUsername(rs.getString("nickname"));
+                v.setUsername(rs.getString("username"));
                 v.setEmail(rs.getString("email"));
                 v.setPassword(rs.getString("password"));
                 v.setIdealCoverRange(rs.getInt("ideal_cover_range"));
+                v.setJobs(rs.getInt("jobs"));
                 result.add(v);
             }
             rs.close();
@@ -806,13 +1058,12 @@ public class JDBCDAOImpl implements BattiDAO {
      * Return an arraylist of OrdeRecordEntries with the query input
      */
     public ArrayList<OrderRecordEntry> getOrderEntries(String... args) throws Exception{
-
         Connection conn = null;
         PreparedStatement stmt = null;
         ArrayList<OrderRecordEntry> result = new ArrayList<OrderRecordEntry>();
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "SELECT order_id, customer_id, pick_status, created_date, created_time, modified_time, modified_date FROM batti_order_record";
+            String sql = "SELECT order_id, customer_id, pick_status, created_date, created_time, modified_time, modified_date FROM batti_order_record ";
             StringBuilder s = new StringBuilder(sql);
             // check if there's any restrictions
             if(args.length == 1) {
@@ -824,7 +1075,7 @@ public class JDBCDAOImpl implements BattiDAO {
             // Extract data from result set
             while(rs.next()) {
                 OrderRecordEntry o = new OrderRecordEntry();
-                o.setOrderID(rs.getString("result"));
+                o.setOrderID(rs.getString("order_id"));
                 o.setCustomerID(rs.getString("customer_id"));
                 o.setPickStatus(rs.getInt("pick_status"));
                 o.setCreatedDate(rs.getDate("created_date"));
@@ -869,7 +1120,7 @@ public class JDBCDAOImpl implements BattiDAO {
         ArrayList<VolunteerTaskEntry> result = new ArrayList<VolunteerTaskEntry>();
         try{
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-            String sql = "SELECT choice_id, order_id, volunteer_id, pick_up_status FROM volunteer_task";
+            String sql = "SELECT choice_id, order_id, volunteer_id, pick_up_status FROM volunteer_task ";
             StringBuilder s = new StringBuilder(sql);
             // check if there's any restrictions
             if(args.length == 1) {
@@ -913,21 +1164,6 @@ public class JDBCDAOImpl implements BattiDAO {
         return result;
     }
 
-    /**
-     * Return an arraylist of addresses the volunteer signs up when giving the volunteer_id
-     */
-    public ArrayList<String> volunteerTasks(String volunteerID) throws Exception{
-        ArrayList<VolunteerTaskEntry> entries = getVolunteerTaskEntries("WHERE volunteer_id=" + volunteerID + " AND pick_up_status=0");
-        ArrayList<String> result = new ArrayList<String>();
-        for(VolunteerTaskEntry v : entries) {
-            String orderID = v.getOrderID();
-            OrderRecordEntry o = getOrderEntries("WHERE order_id=" + orderID).get(0);
-            String customerID = o.getCustomerID();
-            CustomerInfoEntry c = getCustomerEntries("WHERE customer_id=" + customerID).get(0);
-            result.add(c.getCombinedAddress());
-        }
-        return result;
-    }
 
     /**
      * A utility method to combine the address pieces into one single string

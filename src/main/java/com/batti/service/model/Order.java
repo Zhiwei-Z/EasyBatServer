@@ -1,6 +1,5 @@
 package com.batti.service.model;
 
-import java.util.Date;
 
 /**
  * Created by yonzhang on 6/17/17.
@@ -10,11 +9,21 @@ public class Order {
     private String order_id;
     private String customer_id;
     private int pick_status;
+    private String address;
 
-    public Order(String order_id, String customer_id, int pick_status) {
+    public Order(String order_id, String customer_id, int pick_status, String address) {
         this.order_id = order_id;
         this.customer_id = customer_id;
         this.pick_status = pick_status;
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getOrder_id() {

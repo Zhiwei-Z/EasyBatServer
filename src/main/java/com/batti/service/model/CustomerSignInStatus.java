@@ -1,4 +1,4 @@
-package com.batti.service;
+package com.batti.service.model;
 
 /**
  * Created by yonzhang on 7/9/17.
@@ -8,6 +8,7 @@ public class CustomerSignInStatus {
     private String customerID;
     private int customerStatus;
     private int customerPickStatus;
+
 
     public String getStatus() {
         return status;

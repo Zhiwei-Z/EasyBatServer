@@ -1,13 +1,14 @@
-package com.batti.service;
+package com.batti.service.model;
 
-import java.util.ArrayList;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * Created by yonzhang on 8/14/17.
  */
 public class VolunteerTaskListStatus {
     private String status;
-    private ArrayList<String> tasks;
+    private SortedMap<String, Double> tasks;
 
     public String getStatus() {
         return status;
@@ -17,11 +18,11 @@ public class VolunteerTaskListStatus {
         this.status = status;
     }
 
-    public ArrayList<String> getTasks() {
+    public SortedMap<String, Double> getTasks() {
         return tasks;
     }
 
-    public void setTasks(ArrayList<String> tasks) {
+    public void setTasks(SortedMap<String, Double> tasks) {
         this.tasks = tasks;
     }
 }

@@ -1,7 +1,7 @@
 package com.batti.service;
 
 import com.batti.service.DAO.JDBCDAOImpl;
-import com.batti.service.model.Order;
+import com.batti.service.model.*;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.SortedMap;
 import java.util.UUID;
 
 /**
@@ -45,8 +46,8 @@ public class BattiService {
         OrderStatus ost = new OrderStatus();
         try {
             UUID orderId = generator.generateId(secureRandom);
-
-            Order newOrder = new Order(orderId.toString(), customer_id, 0);
+            String address = j.getCustomerEntries("WHERE customer_id=\"" + customer_id + "\"").get(0).getCombinedAddress();
+            Order newOrder = new Order(orderId.toString(), customer_id, 0, address);
             if (j.assessRequest(customer_id)) {
                 try {
                     j.createOrder(newOrder);
@@ -71,7 +72,6 @@ public class BattiService {
         return new OrderStatus();
     }
 
-
     /**
      * @return an arraylist of customerIds which has a active order record
      */
@@ -85,7 +85,7 @@ public class BattiService {
             return j.retrieveOrderedCustomerId();
         } catch (Exception e) {
             e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
+            ArrayList<String> msg = new ArrayList<>();
             msg.add("Exception thrown here" + e.getMessage());
             return msg;
         }
@@ -111,7 +111,7 @@ public class BattiService {
                 //customerID is then stored into the JSON object
                 sis.setCustomerID(cusId);
                 // store the customer status in the JSON result
-                ArrayList<CustomerInfoEntry> a = j.getCustomerEntries(new String[]{"WHERE customer_id=" + cusId});
+                ArrayList<CustomerInfoEntry> a = j.getCustomerEntries("WHERE customer_id=\"" + cusId + "\"");
                 if(a.size() > 1) {
                     throw new Exception("more than one customer with the customer_id: " + cusId + ", exists");
                 }
@@ -256,6 +256,10 @@ public class BattiService {
                                 email, password, coverRange);
                         vss.setStatus("success");
                         vss.setSuccessfulVolunteerID(volunteerID.toString());
+                        VolunteerInfoEntry newV = j.getVolunteerEntries("WHERE volunteer_id=\"" + volunteerID + "\"").get(0);
+                        vss.setAddress(newV.getCombinedAddress());
+                        vss.setUsername(newV.getUsername());
+                        vss.setCoverRange(newV.getIdealCoverRange());
                     } catch (Exception e){
                         LOG.info("exception thrown after checking address and nickname");
                         e.printStackTrace();
@@ -272,7 +276,7 @@ public class BattiService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
+            ArrayList<String> msg = new ArrayList<>();
             msg.add("Exception thrown here in volunteerSignUp" + e.getMessage());
             for (String m : msg) {
                 System.out.println(m);
@@ -297,6 +301,10 @@ public class BattiService {
                     String volID = j.signInAndReturnVolunteerID(email);
                     //volunteerID is then stored into the JSON object
                     vss.setVolunteerID(volID);
+                    VolunteerInfoEntry v = j.getVolunteerEntries("WHERE volunteer_id=\"" + volID + "\"").get(0);
+                    vss.setUsername(v.getUsername());
+                    vss.setAddress(v.getCombinedAddress());
+                    vss.setCoverRange(v.getIdealCoverRange());
                     System.out.println("sign in success with email: " + email + " and customerID: " + volID);
                 }else{
                     vss.setStatus("Email valid, Password incorrect");
@@ -320,21 +328,23 @@ public class BattiService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/volunteerTaskList")
-    public VolunteerTaskListStatus volunteerTaskList(@QueryParam("volunteerID") String volunteerID) {
+    public VolunteerTaskListStatus volunteerTaskList(@QueryParam("volunteer_id") String volunteerID) {
         JDBCDAOImpl j = new JDBCDAOImpl();
         VolunteerTaskListStatus v = new VolunteerTaskListStatus();
         try{
+            String volunteerAddress = j.getVolunteerEntries("WHERE volunteer_id=\"" + volunteerID + "\"").get(0).getCombinedAddress();
             ArrayList<String> address = j.volunteerTasks(volunteerID);
+            SortedMap<String, Double> s = j.permuteAddresses(volunteerAddress, address);
             if(!address.isEmpty()) {
                 v.setStatus("occupied");
-                v.setTasks(address);
+                v.setTasks(s);
             }else{
                 v.setStatus("empty");
             }
         }catch (Exception e) {
             e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            ArrayList<String> msg = new ArrayList<>();
+            msg.add("Exception thrown here in volunteerTaskList" + e.getMessage());
             for (String m : msg) {
                 System.out.println(m);
             }
@@ -344,16 +354,77 @@ public class BattiService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @Path("/unoccupiedAddressList")
+    public UnoccupiedAddressListStatus unoccupiedAddressList(@QueryParam("volunteer_id") String volunteerID) {
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        UnoccupiedAddressListStatus u = new UnoccupiedAddressListStatus();
+        try{
+            String volunteerAddress = j.getVolunteerEntries("WHERE volunteer_id=\"" + volunteerID + "\"").get(0).getCombinedAddress();
+            ArrayList<String> address = j.unoccupiedAddresses();
+            SortedMap<String, Double> s = j.permuteAddresses(volunteerAddress, address);
+            u.setStatus("success");
+            u.setAddresses(s);
+        }catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<>();
+            msg.add("Exception thrown here in volunteerTaskList" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
+        }
+        return u;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("/volunteerPickJob")
-    public VolunteerResponsibilityStatus volunteerPickJob(@QueryParam("volunteerID") String volunteerID, @QueryParam("address") String address) {
+    public VolunteerResponsibilityStatus volunteerPickJob(@QueryParam("volunteer_id") String volunteerID, @QueryParam("address") String address) {
         JDBCDAOImpl j = new JDBCDAOImpl();
         VolunteerResponsibilityStatus v = new VolunteerResponsibilityStatus();
         try{
-
+            VolunteerInfoEntry vol = j.getVolunteerEntries("WHERE volunteer_id=\"" + volunteerID + "\"").get(0);
+            if(vol.getJobs() >= 3) {
+                v.setStatus("You can at most have 3 assignments at the same time");
+            }else {
+                UUID uuid = generator.generateId(secureRandom);
+                int checkNumber = j.getOrderEntries("WHERE address=\"" + address + "\" AND pick_status=0").size();
+                if (checkNumber == 1) {
+                    j.volunteerPickJob(uuid.toString(), volunteerID, address);
+                    v.setStatus("success");
+                    v.setChoiceID(uuid.toString());
+                } else {
+                    v.setStatus("FATAL ERROR");
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
+            ArrayList<String> msg = new ArrayList<>();
+            msg.add("Exception thrown here in volunteerPickJob" + e.getMessage());
+            for (String m : msg) {
+                System.out.println(m);
+            }
+        }
+        return v;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/volunteerFinishesJob")
+    public VolunteerJobCompleteStatus volunteerFinishesJob(@QueryParam("volunteer_id") String volunteerID, @QueryParam("address") String address) {
+        JDBCDAOImpl j = new JDBCDAOImpl();
+        VolunteerJobCompleteStatus v = new VolunteerJobCompleteStatus();
+        try{
+            if(j.volunteerTasks(volunteerID).contains(address)) {
+                int r = j.volunteerFinishesJob(volunteerID, address);
+                v.setStatus("success");
+                v.setRemainingTasks(r);
+            }else{
+                v.setStatus("the volunteer should never selected this job");
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+            ArrayList<String> msg = new ArrayList<>();
+            msg.add("Exception thrown here in volunteerTaskList" + e.getMessage());
             for (String m : msg) {
                 System.out.println(m);
             }

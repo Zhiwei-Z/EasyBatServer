@@ -1,4 +1,4 @@
-package com.batti.service;
+package com.batti.service.model;
 
 import java.sql.Date;
 import java.sql.Time;
