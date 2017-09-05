@@ -25,8 +25,8 @@ import com.batti.service.model.Order;
  * Created by yonzhang on 6/17/17.
  */
 public class JDBCDAOImpl implements BattiDAO {
-    static final String distanceMatrixApiKey = "AIzaSyB2r_Yo8URXrpiKuciAU__n06Yp-iJKSXM";
     Logger LOG = LoggerFactory.getLogger(JDBCDAOImpl.class);
+    static final String distanceMatrixApiKey = "AIzaSyB2r_Yo8URXrpiKuciAU__n06Yp-iJKSXM";
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static String DB_URL_FORMAT = "jdbc:mysql://%s:%d/%s";
@@ -34,15 +34,23 @@ public class JDBCDAOImpl implements BattiDAO {
     //  Database credentials
     String dbUser = "root";
     String dbPassword = "root";
-    public JDBCDAOImpl(){
-        String dbName = "batti";
-        dbUrl = String.format(DB_URL_FORMAT, "localhost", 3306, dbName);
-        dbUser = "root";
-        dbPassword = "root";
+    public JDBCDAOImpl() throws RuntimeException{
         try {
-            Class.forName(JDBC_DRIVER);
-        } catch (Exception ex) {
+            Properties prop = new Properties();
+            prop.load(getClass().getResourceAsStream("/jdbc.properties"));
+
+            dbUrl = prop.getProperty("jdbc.url");
+            dbUser = prop.getProperty("jdbc.username");
+            dbPassword = prop.getProperty("jdbc.password");
+            try {
+                Class.forName(JDBC_DRIVER);
+            } catch (Exception ex) {
+                LOG.error("fail loading JDBC driver", ex);
+            }
+            LOG.info("use database: {}", dbUrl);
+        }catch (Exception ex){
             LOG.error("fail loading JDBC driver", ex);
+            throw new RuntimeException(ex);
         }
     }
 
@@ -84,7 +92,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail", se);
             }
         }//end try
-        System.out.println("successfully inserted order " + order);
+        LOG.info("successfully inserted order " + order);
     }
 
     /**
@@ -105,7 +113,7 @@ public class JDBCDAOImpl implements BattiDAO {
             ArrayList<String> chk = checkCustomerAddress(combinedAddress);
             return !(chk.size() > 0);
         } catch (Exception ex) {
-            System.out.println("False due to exception in assessCustomerAddress.");
+            LOG.error("False due to exception in assessCustomerAddress.", ex);
             return false;
         }
     }
@@ -120,7 +128,7 @@ public class JDBCDAOImpl implements BattiDAO {
             ArrayList<String> nkms = retrieveCustomerNicknames();
             return !nkms.contains(nickName);
         } catch (Exception ex) {
-            System.out.println("False due to exception in assessCustomerNickName.");
+            LOG.error("False due to exception in assessCustomerNickName.", ex);
             return false;
         }
     }
@@ -159,13 +167,10 @@ public class JDBCDAOImpl implements BattiDAO {
                 nknm.add(nickname);
             }
             rs.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
+            LOG.info("get nickname : {}", nknm);
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+            LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -178,7 +183,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                LOG.error("", se);
             }//end finally try
         }//end try
         return nknm;
@@ -202,13 +207,9 @@ public class JDBCDAOImpl implements BattiDAO {
             ResultSet rs = stmt.executeQuery();
             rs.next();
             customerID = rs.getString("customer_id");
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-            throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+            LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -221,7 +222,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }
         return customerID;
@@ -279,7 +280,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail for some reason during signing ups", se);
             }
         }//end try
-        System.out.println("successfully sign up user " + nickname );
+        LOG.info("successfully sign up user " + nickname);
     }
 
     /**
@@ -310,8 +311,8 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("Fail", se);
             }
         }//end try
-        System.out.println("Goodbye!");
-        System.out.println("successfully inserted order " + customerId);
+        LOG.info("Goodbye!");
+        LOG.info("successfully inserted order " + customerId);
     }
 
     /**
@@ -341,11 +342,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -353,12 +354,13 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(stmt!=null)
                     conn.close();
             }catch(SQLException se){
+                LOG.error("", se);
             }// do nothing
             try{
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return chk;
@@ -398,11 +400,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -415,7 +417,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return chk;
@@ -482,7 +484,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail for some reason of connection", se);
             }
         }//end try
-        System.out.println("successfully sign up volunteer " + username );
+        LOG.info("successfully sign up volunteer " + username );
 
     }
 
@@ -496,6 +498,7 @@ public class JDBCDAOImpl implements BattiDAO {
         try{
             String customerID = getCustomerEntries("WHERE combined_address=\"" + address + "\"").get(0).getCustomerID();
             String orderID = getOrderEntries("WHERE customer_id=\"" + customerID + "\" AND pick_status=0").get(0).getOrderID();
+            VolunteerInfoEntry v = getVolunteerEntries("WHERE volunteer_id=\"" + volunterID + "\"").get(0);
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
             String sql = "INSERT INTO volunteer_task(choice_id, order_id, volunteer_id, pick_up_status) VALUES (?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
@@ -504,7 +507,11 @@ public class JDBCDAOImpl implements BattiDAO {
             stmt.setString(3, volunterID);
             stmt.setInt(4, 0);
             stmt.execute();
+            // Always set the volunteer_status to 1
             changeVolunteerStatus(volunterID, 1);
+            // add 1 to the number of jobs the volunteer has
+            changeVolunteerJobsNumber(volunterID, v.getJobs() + 1);
+            // the order is already occupied by this volunteer
             changeOccupiedStatus(orderID, 1);
         } catch (Exception e) {
             LOG.error("fail make the job choice", e);
@@ -519,7 +526,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail because of connection", se);
             }
         }//end try
-        System.out.println("successfully sign make a job choice" );
+        LOG.info("successfully sign make a job choice" );
     }
 
     /**
@@ -548,7 +555,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail", se);
             }
         }//end try
-        System.out.println("successfully changed if_occupied status");
+        LOG.info("successfully changed if_occupied status");
     }
 
     /**
@@ -628,7 +635,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 LOG.error("fail for because of connection..", se);
             }
         }//end try
-        System.out.println("successfully sign make a job choice" );
+        LOG.info("successfully updated modified time" );
     }
 
     /**
@@ -656,11 +663,10 @@ public class JDBCDAOImpl implements BattiDAO {
                 if (conn != null)
                     conn.close();
             } catch (SQLException se) {
-                System.out.println("error");
                 LOG.error("Fail", se);
             }
         }//end try
-        System.out.println("successfully changed volunteer_status");
+        LOG.info("successfully changed volunteer_status");
     }
 
     /**
@@ -688,11 +694,10 @@ public class JDBCDAOImpl implements BattiDAO {
                 if (conn != null)
                     conn.close();
             } catch (SQLException se) {
-                System.out.println("error");
                 LOG.error("Fail", se);
             }
         }//end try
-        System.out.println("successfully changed volunteer_status");
+        LOG.info("successfully changed volunteer_status");
     }
 
     /**
@@ -718,11 +723,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -735,7 +740,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return password;
@@ -768,11 +773,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs1.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -785,7 +790,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return userPairs;
@@ -809,11 +814,11 @@ public class JDBCDAOImpl implements BattiDAO {
             volunteerID = rs.getString("volunteer_id");
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -826,7 +831,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }
         return volunteerID;
@@ -841,7 +846,7 @@ public class JDBCDAOImpl implements BattiDAO {
             ArrayList<String> chk = checkVolunteerAddress(combinedAddress);
             return ! (chk.size() > 0);
         } catch (Exception ex) {
-            System.out.println("False due to exception in assessVolunteerAddress.");
+            LOG.error("False due to exception in assessVolunteerAddress.", ex);
             return false;
         }
     }
@@ -887,7 +892,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 distMap.put(d, Math.round(distance(origin, d) * 100.0) / 100.0);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+             LOG.error("", e);
         }
         return distMap;
     }
@@ -918,10 +923,10 @@ public class JDBCDAOImpl implements BattiDAO {
                     .origins(origin)
                     .destinations(destination)
                     .await();
-            System.out.println(dm.rows[0].elements[0].status);
+            LOG.info(dm.rows[0].elements[0].status.toString());
             return (dm.rows[0].elements[0].distance.inMeters / 1000.0) / 1.6;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("", e);
             return -1;
         }
 
@@ -965,11 +970,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -982,7 +987,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return result;
@@ -1030,11 +1035,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -1047,7 +1052,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return result;
@@ -1087,11 +1092,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -1104,7 +1109,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return result;
@@ -1141,11 +1146,11 @@ public class JDBCDAOImpl implements BattiDAO {
             rs.close();
         }catch(SQLException se){
             //Handle errors for JDBC
-            se.printStackTrace();
+             LOG.error("", se);
             throw se;
         }catch(Exception e){
             //Handle errors for Class.forName
-            e.printStackTrace();
+             LOG.error("", e);
             throw e;
         }finally{
             //finally block used to close resources
@@ -1158,7 +1163,7 @@ public class JDBCDAOImpl implements BattiDAO {
                 if(conn!=null)
                     conn.close();
             }catch(SQLException se){
-                se.printStackTrace();
+                 LOG.error("", se);
             }//end finally try
         }//end try
         return result;

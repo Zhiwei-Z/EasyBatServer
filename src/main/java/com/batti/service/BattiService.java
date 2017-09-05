@@ -54,20 +54,15 @@ public class BattiService {
                     j.changeCustomerStatus(customer_id, 1);
                     ost.setStatus("success");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    LOG.error("", e);
                 }
             } else {
-                System.out.println("already ordered");
+                LOG.info("already ordered");
                 ost.setStatus("fail");
             }
             return ost;
         } catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("Exception Thrown Here: ", e);
         }
         return new OrderStatus();
     }
@@ -84,7 +79,7 @@ public class BattiService {
         try {
             return j.retrieveOrderedCustomerId();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("", e);
             ArrayList<String> msg = new ArrayList<>();
             msg.add("Exception thrown here" + e.getMessage());
             return msg;
@@ -116,17 +111,13 @@ public class BattiService {
                     throw new Exception("more than one customer with the customer_id: " + cusId + ", exists");
                 }
                 sis.setCustomerStatus(a.get(0).getStatus());
-                System.out.println("sign in success with nickname: " + nickname + " and customerID: " + cusId);
+                LOG.info("sign in success with nickname: " + nickname + " and customerID: " + cusId);
             }else{
+                LOG.info("no account associated");
                 sis.setStatus("No account associated.");
             }
         }catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return sis;
 
@@ -161,30 +152,24 @@ public class BattiService {
                         sus.setStatus("success");
                         sus.setSuccessfulCustomerID(customerId.toString());
                     } catch (Exception e) {
-                        System.out.println("exception thrown after checking address and nickname");
-                        e.printStackTrace();
+                        LOG.error("exception thrown after checking address and nickname", e);
                         sus.setStatus("Our system error");
                         sus.setSuccessfulCustomerID("");
                     }
                 } else {
-                    System.out.println("Nickname has been used.");
+                    LOG.info("Nickname has been used.");
                     sus.setStatus("Nickname has been used.");
                     sus.setSuccessfulCustomerID("");
                 }
             } else {
-                System.out.println("Address has already been registered.");
+                LOG.info("Address has already been registered.");
                 sus.setStatus("Address has already been registered.");
                 sus.setSuccessfulCustomerID("");
             }
 
             return sus;
         } catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here in customerSignUp" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return new CustomerSignUpStatus();
 
@@ -203,10 +188,8 @@ public class BattiService {
         try {
             return j.retrieveCustomerNicknames();
         } catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception in listNicknames" + e.getMessage());
-            return msg;
+            LOG.error("", e);
+            return new ArrayList<>();
         }
 
     }
@@ -261,8 +244,7 @@ public class BattiService {
                         vss.setUsername(newV.getUsername());
                         vss.setCoverRange(newV.getIdealCoverRange());
                     } catch (Exception e){
-                        LOG.info("exception thrown after checking address and nickname");
-                        e.printStackTrace();
+                        LOG.error("exception thrown after checking address and nickname: ", e);
                         vss.setStatus("Our system error");
                         vss.setSuccessfulVolunteerID("");
                     }
@@ -275,12 +257,7 @@ public class BattiService {
                 vss.setStatus("Address has already been registered.");
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<>();
-            msg.add("Exception thrown here in volunteerSignUp" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return vss;
 
@@ -305,7 +282,7 @@ public class BattiService {
                     vss.setUsername(v.getUsername());
                     vss.setAddress(v.getCombinedAddress());
                     vss.setCoverRange(v.getIdealCoverRange());
-                    System.out.println("sign in success with email: " + email + " and customerID: " + volID);
+                    LOG.info("sign in success with email: " + email + " and customerID: " + volID);
                 }else{
                     vss.setStatus("Email valid, Password incorrect");
                     LOG.info("Email valid, Password incorrect");
@@ -315,12 +292,7 @@ public class BattiService {
                 LOG.info("No account associated");
             }
         }catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<String>();
-            msg.add("Exception thrown here in volunteerSignIn" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return vss;
     }
@@ -342,12 +314,7 @@ public class BattiService {
                 v.setStatus("empty");
             }
         }catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<>();
-            msg.add("Exception thrown here in volunteerTaskList" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return v;
     }
@@ -365,12 +332,7 @@ public class BattiService {
             u.setStatus("success");
             u.setAddresses(s);
         }catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<>();
-            msg.add("Exception thrown here in volunteerTaskList" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return u;
     }
@@ -397,12 +359,7 @@ public class BattiService {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<>();
-            msg.add("Exception thrown here in volunteerPickJob" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return v;
     }
@@ -422,12 +379,7 @@ public class BattiService {
                 v.setStatus("the volunteer should never selected this job");
             }
         }catch (Exception e) {
-            e.printStackTrace();
-            ArrayList<String> msg = new ArrayList<>();
-            msg.add("Exception thrown here in volunteerTaskList" + e.getMessage());
-            for (String m : msg) {
-                System.out.println(m);
-            }
+            LOG.error("", e);
         }
         return v;
     }

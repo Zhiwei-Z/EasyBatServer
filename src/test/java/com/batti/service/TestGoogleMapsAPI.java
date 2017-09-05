@@ -3,19 +3,18 @@ package com.batti.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.maps.DistanceMatrixApi;
-import com.google.maps.DistanceMatrixApiRequest;
 import com.google.maps.GeoApiContext;
 import com.google.maps.GeocodingApi;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.GeocodingResult;
-import com.sun.tools.internal.ws.processor.model.Response;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * Created by yonzhang on 8/23/17.
  */
 public class TestGoogleMapsAPI {
-    @Test
+    @Ignore
     public void test() throws Exception{
         GeoApiContext context = new GeoApiContext.Builder()
                 .apiKey("AIzaSyB2r_Yo8URXrpiKuciAU__n06Yp-iJKSXM")
@@ -26,7 +25,7 @@ public class TestGoogleMapsAPI {
         System.out.println(gson.toJson(results[0].addressComponents));
     }
 
-    @Test
+    @Ignore
     public void test2() throws Exception{
         GeoApiContext context = new GeoApiContext.Builder()
                 .apiKey("AIzaSyB2r_Yo8URXrpiKuciAU__n06Yp-iJKSXM")

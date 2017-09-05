@@ -20,8 +20,8 @@ public class BattiTest {
     @Test
     public void testVolunteerSignIn(){
         BattiService b = new BattiService();
-        VolunteerSignInStatus v = b.volunteerSignIn("zhiweizhang2012@gmail.com", "Goodluck99");
-        assertEquals("7d6a1889-d866-4c8f-9e6b-43df8c130734", v.getVolunteerID());
+        VolunteerSignInStatus v = b.volunteerSignIn("2306827699@qq.com", "hitmeup");
+        assertEquals("08ec1616-0ad8-46bf-a85e-f5a1cc229dde", v.getVolunteerID());
     }
 
     @Test
@@ -52,8 +52,8 @@ public class BattiTest {
     @Test
     public void testCustomerOrder() {
         BattiService b = new BattiService();
-//        b.placeOrder("29402280-0e05-483c-9a38-7e6d1d5d0165");
-//        b.placeOrder("5258f814-4c73-45a8-b580-af90b880317f");
+        b.placeOrder("29402280-0e05-483c-9a38-7e6d1d5d0165");
+        b.placeOrder("5258f814-4c73-45a8-b580-af90b880317f");
 //        b.placeOrder("692562e4-65fb-4be1-997a-d907f3770583");
 //        b.placeOrder("d332a9f4-9245-4c7f-a170-dbd4419f90c4");
 //        b.placeOrder("d5222413-fb9f-4594-9ba7-d227ce4226f4");
@@ -68,7 +68,7 @@ public class BattiTest {
     public void testVolunteerPickJob() {
         BattiService b = new BattiService();
         b.volunteerPickJob("08ec1616-0ad8-46bf-a85e-f5a1cc229dde", "4792 Valpey Park Avenue, Fremont, CA, 94538");
-//        b.volunteerPickJob("08ec1616-0ad8-46bf-a85e-f5a1cc229dde", "3929 Wild Indigo Common, Fremont, CA, 94538");
+        b.volunteerPickJob("08ec1616-0ad8-46bf-a85e-f5a1cc229dde", "3929 Wild Indigo Common, Fremont, CA, 94538");
     }
 
     @Test
