@@ -218,7 +218,7 @@ public class BattiService {
                                        @QueryParam("username") String username,
                                        @QueryParam("email") String email,
                                        @QueryParam("password") String password,
-                                       @QueryParam("idealCoverRange") int coverRange){
+                                       @QueryParam("ideal_cover_range") int coverRange){
         JDBCDAOImpl j = new JDBCDAOImpl();
         VolunteerSignUpStatus vss = new VolunteerSignUpStatus();
         try{

@@ -27,6 +27,8 @@ CREATE TABLE volunteer_info(
   username          VARCHAR (20),
   email             VARCHAR (64),
   password          VARCHAR  (64),
+  ideal_cover_range INT (4),
+  jobs INT (4),
 	PRIMARY KEY (volunteer_id)
 );
 
