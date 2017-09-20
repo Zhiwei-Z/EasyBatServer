@@ -135,6 +135,8 @@ public class JDBCDAOImpl implements BattiDAO {
 
 
     /**
+     *
+     *
      * retrieve the customerIDs that have already ordered
      * @return and arraylist of customerID
      */

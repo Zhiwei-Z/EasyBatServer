@@ -20,8 +20,8 @@ public class BattiTest {
     @Test
     public void testVolunteerSignIn(){
         BattiService b = new BattiService();
-        VolunteerSignInStatus v = b.volunteerSignIn("2306827699@qq.com", "hitmeup");
-        assertEquals("08ec1616-0ad8-46bf-a85e-f5a1cc229dde", v.getVolunteerID());
+        VolunteerSignInStatus v = b.volunteerSignIn("zhiweizhang2012@gmail.com", "hahaha");
+        assertEquals(v.getStatus(), "success");
     }
 
     @Test
@@ -48,6 +48,7 @@ public class BattiTest {
             System.out.println(c);
         }
     }
+
 
     @Test
     public void testCustomerOrder() {
